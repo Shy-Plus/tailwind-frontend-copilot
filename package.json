@@ -1,0 +1,10 @@
+{
+  "name": "tailwind-frontend-copilot-repo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Release and maintenance repository for the tailwind-frontend-copilot skill.",
+  "license": "MIT",
+  "scripts": {
+    "build:release-assets": "bash scripts/build-release-assets.sh 0.1.0"
+  }
+}
