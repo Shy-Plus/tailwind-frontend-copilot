@@ -1,0 +1,12 @@
+{
+  "repo_path": "/Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/new-integration",
+  "stack": "vite-react",
+  "builder": "vite",
+  "package_manager": "unknown",
+  "tailwind_version": "not-found",
+  "postcss_mode": "none",
+  "tailwind_config_files": [],
+  "css_entries": [],
+  "has_tailwind_import": false,
+  "evidence": ["vite"]
+}

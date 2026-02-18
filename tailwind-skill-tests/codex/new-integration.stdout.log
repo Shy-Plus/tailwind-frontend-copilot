@@ -1,0 +1,277 @@
+2026-02-18T19:37:19.560818Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/feishu-pcec/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T19:37:19.560887Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/docx-skill/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T19:37:19.560894Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/one-skill-to-rule-them-all/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T19:37:19.560897Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/commit-analyzer/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T19:37:19.560900Z ERROR codex_core::codex: failed to load skill /opt/homebrew/lib/node_modules/openclaw/skills/food-order/SKILL.md: invalid YAML: mapping values are not allowed in this context at line 2 column 125
+2026-02-18T19:37:19.560904Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/feishu-card/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T19:37:19.560907Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/minimax-tts/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T19:37:19.560910Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/openclaw-self-backup/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T19:37:19.560914Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/openclaw-docs/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T19:37:19.560917Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/apple-docs-mcp/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T19:37:19.560920Z ERROR codex_core::codex: failed to load skill /opt/homebrew/lib/node_modules/openclaw/skills/canvas/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T19:37:19.560923Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/peekaboo/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T19:37:19.563821Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+OpenAI Codex v0.95.0 (research preview)
+--------
+workdir: /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/new-integration
+model: gpt-5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: high
+reasoning summaries: auto
+session id: 019c7241-c7cb-7b61-977e-16220e9baaba
+--------
+user
+请使用 tailwind-frontend-copilot 技能。场景：新项目接入 Tailwind v4。不要修改文件。严格按以下小节输出：## Stack ## GateA ## GateB ## GateC ## MinimalSteps ## Rollback。
+mcp: playwright starting
+mcp: figma starting
+mcp: playwright ready
+mcp: figma ready
+mcp startup: ready: playwright, figma
+
+
+
+
+
+thinking
+**Structuring Tailwind Integration Steps**
+
+I need to organize a response that identifies the steps for integrating Tailwind v4 into a new project. The user mentioned integrating with a scenario, so I should outline minimal steps and checklist checks. I'll start with the toolchain level, considering config, NPM packages, and CSS entry point. For Tailwind v4, the only dependency is 'tailwindcss', which should be listed as a dev dependency. The config is simplified, and the 'content' key is replaced with 'source.' I’ll focus on the just-in-time engine in the CSS config as well.
+thinking
+**Verifying Tailwind CSS v4 Steps**
+
+I want to ensure accuracy, so I need to use the web.run tool if I'm uncertain about the information. I understand that software libraries may change over time, particularly after October 2024. I should confirm the details through web.run, especially for Tailwind CSS v4, and check the official documentation for integration steps. It seems like I can use web.run since it operates separately from the developer environment restrictions. I’ll also recall the new Tailwind integration steps from memory as I proceed.
+thinking
+**Confirming Tailwind CSS v4 Changes**
+
+I’m trying to confirm if the big changes from Tailwind v3 to v4 were launched in 2024 and if the v4 alpha release ended in early 2025. I’ll need to use web.run to search for information with queries like "Tailwind CSS v4 install," "v4 upgrade guide," and "new project setup." Since the user's folder is "new-integration," I’ll provide concise instructions without modifying files, including minimal steps and rollback instructions, while mentioning the need for updated documentation in the process. I also need to follow the guideline to use headers in title case.
+thinking
+**Formatting Required Sections**
+
+The user has specified exact sections that I must include as headers: "## Stack / GateA / GateB / GateC / MinimalSteps / Rollback." Each section will consist of 4-6 bullet points. I should also acknowledge the skills I'm using, as the guidelines require it. Since they requested strict adherence to these sections, I think I can introduce the skills mention briefly in the "Stack" section, noting, "使用技能 tailwind-frontend-copilot，识别栈类型..." while keeping the rest of the output strictly organized.
+thinking
+**Proposing Commands for Tailwind v4**
+
+I need to suggest clear, copy-paste commands under the MinimalSteps section. For Gate A, I'll ensure the tooling can compile sanity checks, validating CSS imports, and the CLI build output in both development and production. Since Tailwind v4 relies on the "tailwindcss" CLI, I’ll include commands like installing Tailwind, importing CSS, and using the CLI for compiling. Historically, v4 has moved away from PostCSS plugins while offering default scanning through an optional config. I should confirm this information by browsing for accuracy.
+🌐 Searching the web...
+🌐 Searched: Tailwind CSS v4 install new project
+🌐 Searching the web...
+🌐 Searched: Tailwind v4 @source directive
+🌐 Searching the web...
+🌐 Searched: Tailwind detecting classes in source files v4 docs source()
+
+thinking
+**Planning project integration**
+
+I see that we have the official documentation on detecting classes in source files using "source()" and "@source." It's also essential to consider the Vite plugin "tailwindcss/vite" for project integration. I think we could propose both a CLI-only approach and a plugin-based method, ensuring we verify plugin integration. 
+
+There are multiple stacks involved, like Next.js, Vite with React, and others, but the user asked not to pose questions. Still, a gating plan covering major stacks could help. I’ll check the skill’s SKILL.md for alignment.
+codex
+我先读取 tailwind-frontend-copilot 技能手册，提炼 v4 接入要点与分阶段 Gate。
+exec
+bash -lc "sed -n '1,220p' '/Users/suhongyi/.agents/skills/tailwind-frontend-copilot/SKILL.md'" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/new-integration succeeded in 724ms:
+---
+name: tailwind-frontend-copilot
+description: Tailwind CSS frontend development, maintenance, and improvement copilot for Codex/OpenClaw. Use when tasks involve Tailwind setup, migration (v3 to v4), troubleshooting class generation or style regressions, stack-specific integration (Next.js, Vite + React, Vue/Nuxt/Svelte), design-system alignment, architecture tradeoff explanation, or style direction matching with explicit human decision gates.
+---
+
+# Tailwind Frontend Copilot
+
+## Overview
+
+Provide a decision-complete workflow for building and maintaining Tailwind-based frontend projects.
+Keep `SKILL.md` short and load `references/*.md` on demand.
+
+This skill is optimized for:
+- Next.js and Vite + React (priority)
+- Vue/Nuxt/Svelte (comparison and fallback guidance)
+- Tailwind v4.1 baseline with v3 migration support
+
+## Non-Negotiable Execution Rules
+
+1. Preserve existing design systems by default. Do not restyle aggressively unless Gate B approves.
+2026-02-18T19:38:39.880277Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+
+thinking
+**Organizing integration steps**
+
+I’ve successfully loaded the skill, which includes definitions for Gate A/B/C. That’s great! My next step involves organizing the output into sections: Stack, GateA, GateB, GateC, MinimalSteps, and Rollback. I’ll adapt the gates according to the skill’s definitions while providing accurate Tailwind v4 integration steps for the user’s chosen stack. Since I don’t know the user’s stack yet, I’ll include options for different frameworks with minimal paths and plugin choices, suggesting detection commands for execution.
+🌐 Searching the web...
+🌐 Searched: Tailwind CSS v4 install guide new project
+
+
+
+
+
+thinking
+**Considering citation requirements**
+
+I see that we have credible official sources from the Tailwind CSS blog for version 4 and Next.js documentation regarding Tailwind CSS. I’ll need to cite the top five significant statements, which means I may have to provide bullet points under each section for clarity and include citations in parentheses. Even if the user doesn't want citations, the web.run tool guidelines require them when I assert facts. I’ll ensure to place the citations at the end of the bullet lines.
+thinking
+**Crafting a structured answer**
+
+I need to create a final structured answer, focusing on the integration choices for stacks in a new project. For the "Stack" section, I’ll define recommended combinations. For **Next.js 14/15**, I'll suggest using the PostCSS plugin @tailwindcss/postcss as per the documentation. The setup involves installing several packages and configuring the necessary files. An alternative mention could be a Vite plugin for Next.js, but that's not applicable since Next uses Turbopack or Webpack.
+
+For **Vite + React**, I recommend using the @tailwindcss/vite plugin for optimal performance and caution about using the LightningCSS transformer. Lastly, for **Vue/Nuxt/Svelte**, I’ll emphasize the use of the Vite plugin, especially for Vue 3, while noting the specific modules for Nuxt 3.
+thinking
+**Clarifying SvelteKit integration**
+
+For SvelteKit, which is Vite-based, I'm uncertain about whether to recommend using the PostCSS plugin, but it's generally safe since the Vite plugin works across frameworks. I need to mention that version 4 relies on a "CSS-first" configuration, meaning there's no default tailwind.config.js. Instead, customization of tokens can be done through @theme or CSS variables, and content detection is automatic with an `@source` directive for extra scanning.
+
+I'll also outline GateA and GateB considerations regarding token ownership, component boundaries, styling modes, and visual direction. A checklist for minimal scripts isn't necessary, but I’ll ensure to provide relevant citations as well.
+thinking
+**Reviewing release readiness and minimal steps**
+
+For GateC, I need to focus on release readiness by compiling CSS in both development and build modes. For Next.js, I’ll mention running `next dev` and `next build`, while for Vite, it's `vite dev` and `vite build` to ensure the CSS flushes. 
+
+I should provide copy-pastable commands for both Next.js and Vite stacks, especially since the user asked about integrating Tailwind v4 in a new project. For Next.js, I’ll outline steps like creating a project, installing dependencies, and setting up necessary files. They mentioned they don't want to modify files now, but I can offer them command snippets they’ll need later.
+thinking
+**Proposing minimal code for integration**
+
+I need to suggest minimal code to add for integrating Tailwind v4, even though the user doesn’t want to modify files right now. I can provide example file contents in an organized fashion, with concise bullet points explaining why for clarity. 
+
+I’ll include a “Rollback” section, detailing how to quickly revert to v3 if issues arise. This involves installation of specific dependencies and removal of imports. I must be cautious about known incompatibilities, especially regarding the Vite plugin and its “lightningcss” transformer. I’ll ensure to provide citations for the integration steps, content detection, and configuration requirements.
+🌐 Searching the web...
+🌐 Searched: Tailwind CSS v4 detecting classes in source files @source documentation
+
+
+
+
+
+thinking
+**Considering plugin integration**
+
+I'm starting development and looking at different frameworks. For Vue 3 with Vite, it seems like the setup is similar to using a plugin. For SvelteKit, the plugin should work, but the documentation needs to provide minimal usage guidelines. I’m curious if using "svelte-add" is necessary for the interplay between the Svelte preprocessor and the plugin.
+
+Additionally, I want to suggest optional CLI or PostCSS alternatives and establish some acceptance criteria for our project.
+thinking
+**Proposing gating details**
+
+I'm outlining some gating details for our project. For the entry file path, we might use either `src/app/globals.css` or `src/index.css`. As for the token plan, I want to confirm brand colors and font while keeping essential tokens ephemeral, possibly using `@theme` or CSS variables.
+
+I also suggest keeping automatic scanning for sources and adding `@source` for package scanning. Regarding autoprefixing, since it's included in the PostCSS plugin, I'll ensure cross-browser compatibility. Lastly, I’ll create a checklist for build readiness and specify steps for rollback in case we need to revert changes.
+thinking
+**Providing version fallback details**
+
+I want to clarify that the UI will appear unstyled during migration or evaluation of version 4, so falling back to plain CSS or version 3 may be necessary. For users using Next or Vite, I’ll outline fallback steps: 
+
+First, run `npm i -D tailwindcss@3 postcss autoprefixer`. Then, execute `npx tailwindcss init -p` to set it up in version 3 style. I also need to provide sample content for `tailwind.config.js`, although I’ve noted we said not to modify files. Lastly, I’ll create a final message in Chinese formatted as per the user’s preference.
+thinking
+**Outlining recommended stacks**
+
+I’ll create a concise "选择栈" bullet list with recommended plugins. For Next.js, I’m suggesting the PostCSS plugin due to zero configuration, clearly citing Next.js documentation. For Vite with React, I’ll also recommend the Vite plugin and reference the Tailwind blog.
+
+For Vue, Nuxt, and Svelte, I’ll propose the Vite plugin, but it's important to confirm compatibility for SvelteKit; otherwise, we can use the PostCSS plugin. I'll bring in universal facts for version 4, such as the CSS-first config and automatic class scanning. I’ll keep this to a solid four to six bullet points for clarity!
+thinking
+**Creating minimal steps**
+
+For the MinimalSteps section, I want to provide concise commands for each stack, focusing on Next.js and Vite+React while keeping within the bullet format. I’m considering starting with a general foundation before diving into specific frameworks. Each bullet point will summarize command lines and include explanations, but I need to balance brevity with clarity. 
+
+For Next.js, I’ll lay out essential commands while keeping the explanations inline, ensuring that they are concise enough for reading. Similarly, I’ll cover the rollback commands needed for plugin uninstallation and version 3 fallback.
+
+Then, I need to make sure I cite essential parts based on the Tailwind and Next documentation while limiting citations to five key statements. This will help confirm the recommended plugins, detection, and CSS configurations clearly within the user’s guidance. Finally, I’ll stick to the specified section titles in the final output!
+codex
+## Stack
+- Next.js（App Router，Turbopack/Webpack）：推荐用 PostCSS 方式安装 v4（`tailwindcss` + `@tailwindcss/postcss`），零配置起步，在全局样式中仅 `@import "tailwindcss"` 即可。([en.nextjs.im](https://en.nextjs.im/docs/app/guides/tailwind-css?utm_source=openai))
+- Vite + React：推荐启用官方 Vite 插件 `@tailwindcss/vite`，在 `vite.config.ts` 中 `plugins: [tailwindcss()]`，性能更优于仅 PostCSS。([tailwindcss.com](https://tailwindcss.com/blog/tailwindcss-v4?utm_source=openai))
+- Vue/Nuxt/Svelte（Vite 系）：同样优先 `@tailwindcss/vite`；若遇到生态插件冲突，可退回 PostCSS 方案。([tailwindcss.com](https://tailwindcss.com/blog/tailwindcss-v4?utm_source=openai))
+- v4 配置理念：CSS-first，不再需要 `tailwind.config.js`（默认即可用）；在样式表中 `@import "tailwindcss"`，用 `@theme`/`@utility` 做定制。([tailwindcss.com](https://tailwindcss.com/blog/tailwindcss-v4?utm_source=openai))
+- Source 扫描：v4 自动检测模板文件；需额外扫描或精确控制时，用 `@source` 与 `source()`（如 `@import "tailwindcss" source("../src");`）。([tailwindcss.com](https://tailwindcss.com/docs/detecting-classes-in-source-files?utm_source=openai))
+
+## GateA
+- 选型落锤：Next（PostCSS）或 Vite（Vite 插件），并确认包管理器与 Node 版本范围。
+- CSS 入口与引入：明确全局样式文件路径与在根布局/入口处的 `import` 位置。
+- Token 策略：是否采用 CSS-first `@theme` 统一变量（色板、字号、断点）。
+- Source 策略：默认自动检测或需在样式中追加 `@source`/`source()` 以覆盖 monorepo/外部包。
+- 约束清单：是否保留 Preflight、是否需要暗色模式与断点语义。
+
+## GateB
+- 视觉模式：继承现有系统 / 渐进演进 / 全量重置（三选一）。
+- 字体与字号：系统字体或品牌字体加载策略（FOIT/FOUT 取舍）。
+- 色彩与语义：品牌主色、语义色与明暗态配比；是否启用 OKLCH 变量。
+- 间距与栅格：默认步进（如 4/8 pt）与容器宽度。
+- 组件边界：哪些用原子类直写，哪些抽象为复合组件或 `@utility`。
+
+## GateC
+- 构建验证：本地 Dev 热更与 Prod 构建均产出正确 CSS（Next `next build`/Vite `vite build`）。
+- Source 覆盖：示例页包含常见变体（hover/focus/lg 等），动态类（如 `grid-cols-[auto,1fr]`）可正确生成。
+- 兼容范围：目标浏览器与可接受的自动前缀；关键页面 CLS/LCP 不因样式加载退化。
+- 回归面：已有页面视觉无意外漂移；样式产物体积与生成时长在阈值内。
+- 文档与交付：更新接入与维护文档（架构、方法、巡检清单）。
+
+## MinimalSteps
+- Next.js（PostCSS，官方推荐）
+  - 初始化与安装：`npx create-next-app@latest myapp --ts --eslint && cd myapp && npm i -D tailwindcss @tailwindcss/postcss postcss`（v4 零配置起步）。([en.nextjs.im](https://en.nextjs.im/docs/app/guides/tailwind-css?utm_source=openai))
+  - 配置 PostCSS：创建 `postcss.config.mjs`，内容仅 `{ plugins: { '@tailwindcss/postcss': {} } }`。([en.nextjs.im](https://en.nextjs.im/docs/app/guides/tailwind-css?utm_source=openai))
+  - 引入样式：在全局 CSS（如 `src/app/globals.css`）添加一行：`@import "tailwindcss";`；在根布局 `layout.tsx` 引入该 CSS。([tailwindcss.com](https://tailwindcss.com/blog/tailwindcss-v4?utm_source=openai))
+  - 验证：`npm run dev`，页面放入 `<div className="p-6 rounded-lg bg-emerald-500/10 text-emerald-600">OK</div>` 检查是否生效。
+- Vite + React（首选 Vite 插件）
+  - 初始化与安装：`npm create vite@latest myapp -- --template react-ts && cd myapp && npm i -D tailwindcss @tailwindcss/vite`
+  - 启用插件：`vite.config.ts` 中 `import tailwindcss from "@tailwindcss/vite"; export default defineConfig({ plugins: [react(), tailwindcss()] })`。([tailwindcss.com](https://tailwindcss.com/blog/tailwindcss-v4?utm_source=openai))
+  - 引入样式：`src/index.css` 写入 `@import "tailwindcss";`，并在 `main.tsx` 里 `import "./index.css"`。
+  - 验证：`npm run dev`，页面加入测试块验证变体与任意值。
+  - 兼容提示：若你在 `vite.config.ts` 设置了 `css.transformer: 'lightningcss'`，遇到 `@apply` 或控制台告警，请先移除此项以规避已知不兼容历史。([github.com](https://github.com/tailwindlabs/tailwindcss/issues/14205?utm_source=openai))
+- 通用可选项
+  - 若不走 Vite/框架插件，也可用 PostCSS 方式：安装 `tailwindcss @tailwindcss/postcss postcss` 并在 `postcss.config.*` 中启用，样式中仅 `@import "tailwindcss"`。([tailwindcss.com](https://tailwindcss.com/blog/tailwindcss-v4?utm_source=openai))
+  - 需扫描外部包或限定扫描范围时，在样式中追加 `@source` / 使用 `source()` 控制基路径与 safelist。([tailwindcss.com](https://tailwindcss.com/docs/detecting-classes-in-source-files?utm_source=openai))
+
+## Rollback
+- 移除 v4（Next/PostCSS 路径）：`npm rm tailwindcss @tailwindcss/postcss postcss`，删去 CSS 中 `@import "tailwindcss"` 与 PostCSS 配置项，恢复页面到原生/其他样式方案。
+- 移除 v4（Vite 插件路径）：`npm rm tailwindcss @tailwindcss/vite`，从 `vite.config.ts` 移除 `tailwindcss()`，并删去 CSS 中的 `@import "tailwindcss"`。
+- 快速回退到 v3（如需验证对比）：
+  - Next/Vite 通用：`npm i -D tailwindcss@3 postcss autoprefixer && npx tailwindcss init -p`，CSS 改为 `@tailwind base; @tailwind components; @tailwind utilities;`，`tailwind.config.js` 中补全 `content`。([v3.tailwindcss.com](https://v3.tailwindcss.com/docs/guides/nextjs?utm_source=openai))
+- 风险声明：回退会使依赖 v4 的 `@theme`/`@utility` 与自动 Source 策略失效，需同步调整样式与构建设定。
+2026-02-18T19:39:59.067352Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+tokens used
+34,490
+## Stack
+- Next.js（App Router，Turbopack/Webpack）：推荐用 PostCSS 方式安装 v4（`tailwindcss` + `@tailwindcss/postcss`），零配置起步，在全局样式中仅 `@import "tailwindcss"` 即可。([en.nextjs.im](https://en.nextjs.im/docs/app/guides/tailwind-css?utm_source=openai))
+- Vite + React：推荐启用官方 Vite 插件 `@tailwindcss/vite`，在 `vite.config.ts` 中 `plugins: [tailwindcss()]`，性能更优于仅 PostCSS。([tailwindcss.com](https://tailwindcss.com/blog/tailwindcss-v4?utm_source=openai))
+- Vue/Nuxt/Svelte（Vite 系）：同样优先 `@tailwindcss/vite`；若遇到生态插件冲突，可退回 PostCSS 方案。([tailwindcss.com](https://tailwindcss.com/blog/tailwindcss-v4?utm_source=openai))
+- v4 配置理念：CSS-first，不再需要 `tailwind.config.js`（默认即可用）；在样式表中 `@import "tailwindcss"`，用 `@theme`/`@utility` 做定制。([tailwindcss.com](https://tailwindcss.com/blog/tailwindcss-v4?utm_source=openai))
+- Source 扫描：v4 自动检测模板文件；需额外扫描或精确控制时，用 `@source` 与 `source()`（如 `@import "tailwindcss" source("../src");`）。([tailwindcss.com](https://tailwindcss.com/docs/detecting-classes-in-source-files?utm_source=openai))
+
+## GateA
+- 选型落锤：Next（PostCSS）或 Vite（Vite 插件），并确认包管理器与 Node 版本范围。
+- CSS 入口与引入：明确全局样式文件路径与在根布局/入口处的 `import` 位置。
+- Token 策略：是否采用 CSS-first `@theme` 统一变量（色板、字号、断点）。
+- Source 策略：默认自动检测或需在样式中追加 `@source`/`source()` 以覆盖 monorepo/外部包。
+- 约束清单：是否保留 Preflight、是否需要暗色模式与断点语义。
+
+## GateB
+- 视觉模式：继承现有系统 / 渐进演进 / 全量重置（三选一）。
+- 字体与字号：系统字体或品牌字体加载策略（FOIT/FOUT 取舍）。
+- 色彩与语义：品牌主色、语义色与明暗态配比；是否启用 OKLCH 变量。
+- 间距与栅格：默认步进（如 4/8 pt）与容器宽度。
+- 组件边界：哪些用原子类直写，哪些抽象为复合组件或 `@utility`。
+
+## GateC
+- 构建验证：本地 Dev 热更与 Prod 构建均产出正确 CSS（Next `next build`/Vite `vite build`）。
+- Source 覆盖：示例页包含常见变体（hover/focus/lg 等），动态类（如 `grid-cols-[auto,1fr]`）可正确生成。
+- 兼容范围：目标浏览器与可接受的自动前缀；关键页面 CLS/LCP 不因样式加载退化。
+- 回归面：已有页面视觉无意外漂移；样式产物体积与生成时长在阈值内。
+- 文档与交付：更新接入与维护文档（架构、方法、巡检清单）。
+
+## MinimalSteps
+- Next.js（PostCSS，官方推荐）
+  - 初始化与安装：`npx create-next-app@latest myapp --ts --eslint && cd myapp && npm i -D tailwindcss @tailwindcss/postcss postcss`（v4 零配置起步）。([en.nextjs.im](https://en.nextjs.im/docs/app/guides/tailwind-css?utm_source=openai))
+  - 配置 PostCSS：创建 `postcss.config.mjs`，内容仅 `{ plugins: { '@tailwindcss/postcss': {} } }`。([en.nextjs.im](https://en.nextjs.im/docs/app/guides/tailwind-css?utm_source=openai))
+  - 引入样式：在全局 CSS（如 `src/app/globals.css`）添加一行：`@import "tailwindcss";`；在根布局 `layout.tsx` 引入该 CSS。([tailwindcss.com](https://tailwindcss.com/blog/tailwindcss-v4?utm_source=openai))
+  - 验证：`npm run dev`，页面放入 `<div className="p-6 rounded-lg bg-emerald-500/10 text-emerald-600">OK</div>` 检查是否生效。
+- Vite + React（首选 Vite 插件）
+  - 初始化与安装：`npm create vite@latest myapp -- --template react-ts && cd myapp && npm i -D tailwindcss @tailwindcss/vite`
+  - 启用插件：`vite.config.ts` 中 `import tailwindcss from "@tailwindcss/vite"; export default defineConfig({ plugins: [react(), tailwindcss()] })`。([tailwindcss.com](https://tailwindcss.com/blog/tailwindcss-v4?utm_source=openai))
+  - 引入样式：`src/index.css` 写入 `@import "tailwindcss";`，并在 `main.tsx` 里 `import "./index.css"`。
+  - 验证：`npm run dev`，页面加入测试块验证变体与任意值。
+  - 兼容提示：若你在 `vite.config.ts` 设置了 `css.transformer: 'lightningcss'`，遇到 `@apply` 或控制台告警，请先移除此项以规避已知不兼容历史。([github.com](https://github.com/tailwindlabs/tailwindcss/issues/14205?utm_source=openai))
+- 通用可选项
+  - 若不走 Vite/框架插件，也可用 PostCSS 方式：安装 `tailwindcss @tailwindcss/postcss postcss` 并在 `postcss.config.*` 中启用，样式中仅 `@import "tailwindcss"`。([tailwindcss.com](https://tailwindcss.com/blog/tailwindcss-v4?utm_source=openai))
+  - 需扫描外部包或限定扫描范围时，在样式中追加 `@source` / 使用 `source()` 控制基路径与 safelist。([tailwindcss.com](https://tailwindcss.com/docs/detecting-classes-in-source-files?utm_source=openai))
+
+## Rollback
+- 移除 v4（Next/PostCSS 路径）：`npm rm tailwindcss @tailwindcss/postcss postcss`，删去 CSS 中 `@import "tailwindcss"` 与 PostCSS 配置项，恢复页面到原生/其他样式方案。
+- 移除 v4（Vite 插件路径）：`npm rm tailwindcss @tailwindcss/vite`，从 `vite.config.ts` 移除 `tailwindcss()`，并删去 CSS 中的 `@import "tailwindcss"`。
+- 快速回退到 v3（如需验证对比）：
+  - Next/Vite 通用：`npm i -D tailwindcss@3 postcss autoprefixer && npx tailwindcss init -p`，CSS 改为 `@tailwind base; @tailwind components; @tailwind utilities;`，`tailwind.config.js` 中补全 `content`。([v3.tailwindcss.com](https://v3.tailwindcss.com/docs/guides/nextjs?utm_source=openai))
+- 风险声明：回退会使依赖 v4 的 `@theme`/`@utility` 与自动 Source 策略失效，需同步调整样式与构建设定。

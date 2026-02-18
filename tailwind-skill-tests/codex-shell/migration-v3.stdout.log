@@ -1,0 +1,384 @@
+2026-02-18T20:12:51.662135Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/feishu-pcec/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:12:51.662191Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/docx-skill/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:12:51.662197Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/one-skill-to-rule-them-all/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:12:51.662201Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/commit-analyzer/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:12:51.662204Z ERROR codex_core::codex: failed to load skill /opt/homebrew/lib/node_modules/openclaw/skills/food-order/SKILL.md: invalid YAML: mapping values are not allowed in this context at line 2 column 125
+2026-02-18T20:12:51.662207Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/feishu-card/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:12:51.662209Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/minimax-tts/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:12:51.662212Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/openclaw-self-backup/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:12:51.662214Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/openclaw-docs/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:12:51.662217Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/apple-docs-mcp/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:12:51.662220Z ERROR codex_core::codex: failed to load skill /opt/homebrew/lib/node_modules/openclaw/skills/canvas/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:12:51.662222Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/peekaboo/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:12:51.664922Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+OpenAI Codex v0.95.0 (research preview)
+--------
+workdir: /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/migration-v3
+model: gpt-5
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: medium
+reasoning summaries: auto
+session id: 019c7262-5050-7e03-a8f3-61ea37b693df
+--------
+user
+请使用 tailwind-frontend-copilot 技能。允许并主动使用 shell 命令做证据采集。场景：v3 迁移到 v4。不要修改文件。严格输出：## Baseline ## Risks ## GateA ## MigrationSteps ## Rollback ## GateC。
+mcp: playwright starting
+mcp: figma starting
+mcp: playwright ready
+mcp: figma ready
+mcp startup: ready: playwright, figma
+codex
+我先读取 tailwind-frontend-copilot 的 SKILL.md，并快速扫描当前仓库（package.json、Tailwind/PostCSS 配置与用例）建立基线。
+exec
+bash -lc 'ls -la' in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/migration-v3 succeeded in 20ms:
+total 24
+drwxr-xr-x@ 6 suhongyi  staff  192 Feb 19 03:34 .
+drwxr-xr-x@ 6 suhongyi  staff  192 Feb 19 03:34 ..
+-rw-r--r--@ 1 suhongyi  staff  205 Feb 19 03:34 package.json
+-rw-r--r--@ 1 suhongyi  staff   80 Feb 19 03:34 postcss.config.js
+drwxr-xr-x@ 3 suhongyi  staff   96 Feb 19 03:34 src
+-rw-r--r--@ 1 suhongyi  staff  103 Feb 19 03:34 tailwind.config.js
+2026-02-18T20:13:02.510222Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+exec
+bash -lc 'cat package.json' in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/migration-v3 succeeded in 23ms:
+{
+  "name": "migration-v3",
+  "private": true,
+  "version": "0.0.1",
+  "dependencies": {
+    "react": "18.3.1",
+    "tailwindcss": "^3.4.13",
+    "postcss": "^8.4.47",
+    "autoprefixer": "^10.4.20"
+  }
+}
+2026-02-18T20:13:06.615414Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+exec
+bash -lc 'cat tailwind.config.js' in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/migration-v3 succeeded in 19ms:
+module.exports = {
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  theme: { extend: {} },
+  plugins: []
+}
+2026-02-18T20:13:26.586452Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+exec
+bash -lc 'cat postcss.config.js' in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/migration-v3 succeeded in 22ms:
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {}
+  }
+}
+2026-02-18T20:13:29.218401Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+exec
+bash -lc 'rg -n "@tailwind|class=|className=|tw=`|tw'"\\(\" src || true" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/migration-v3 exited 2 in 12ms:
+bash: -c: line 0: unexpected EOF while looking for matching ``'
+bash: -c: line 1: syntax error: unexpected end of file
+2026-02-18T20:13:32.353087Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+
+thinking
+**Fixing command issues**
+
+I'm noticing there were problems because of backticks. I need to escape them properly. I think I should wrap the regex in single quotes and add -e for multiple patterns. It's also possible to just run "rg" for the @tailwind and class= patterns separately. Let's see if that resolves the issues. I’ll make sure to implement these adjustments carefully!
+exec
+bash -lc 'rg -n "@tailwind|@apply" src || true
+rg -n "class=|className=" src || true
+rg -n "tw=`|tw'"\\(|cva\\(|clsx\\(|cn\\(\" src || true" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/migration-v3 exited 2 in 42ms:
+src/index.css:1:@tailwind base;
+src/index.css:2:@tailwind components;
+src/index.css:3:@tailwind utilities;
+bash: -c: line 2: unexpected EOF while looking for matching ``'
+bash: -c: line 3: syntax error: unexpected end of file
+2026-02-18T20:13:37.292925Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+exec
+bash -lc 'rg -n "class=|className=" src || true' in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/migration-v3 succeeded in 31ms:
+
+2026-02-18T20:13:40.981135Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+exec
+bash -lc "rg -n \"tw=\\"'`|tw'"\\(|cva\\(|clsx\\(|cn\\(\" src || true" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/migration-v3 succeeded in 17ms:
+
+2026-02-18T20:13:43.451861Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+exec
+bash -lc 'rg -n "@tailwind|@apply" src || true' in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/migration-v3 succeeded in 22ms:
+src/index.css:1:@tailwind base;
+src/index.css:2:@tailwind components;
+src/index.css:3:@tailwind utilities;
+2026-02-18T20:13:46.353956Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+exec
+bash -lc "rg -n \"tailwindcss|@tailwind|content:|plugins:|theme:\\s*\\{\" . || true" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/migration-v3 succeeded in 34ms:
+./src/index.css:1:@tailwind base;
+./src/index.css:2:@tailwind components;
+./src/index.css:3:@tailwind utilities;
+./postcss.config.js:2:  plugins: {
+./postcss.config.js:3:    tailwindcss: {},
+./package.json:7:    "tailwindcss": "^3.4.13",
+./tailwind.config.js:2:  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+./tailwind.config.js:3:  theme: { extend: {} },
+./tailwind.config.js:4:  plugins: []
+2026-02-18T20:13:49.345085Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+exec
+bash -lc 'rg -n "forms|typography|aspect-ratio|line-clamp|container-queries|flowbite|daisyui|radix|prettier-plugin-tailwindcss" package.json tailwind.config.* || true' in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/migration-v3 succeeded in 28ms:
+
+2026-02-18T20:13:52.345862Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+exec
+bash -lc "tree -a -I 'node_modules'" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/migration-v3 exited 127 in 16ms:
+bash: tree: command not found
+2026-02-18T20:14:12.159535Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+exec
+bash -lc "/bin/ls -la src && echo '---' && /bin/ls -la src | awk '{print "'$9}'"' | paste -sd ',' - && echo && echo '---' && rg -n \".\" src | head -n 200" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/migration-v3 succeeded in 25ms:
+total 8
+drwxr-xr-x@ 3 suhongyi  staff   96 Feb 19 03:34 .
+drwxr-xr-x@ 6 suhongyi  staff  192 Feb 19 03:34 ..
+-rw-r--r--@ 1 suhongyi  staff   59 Feb 19 03:34 index.css
+---
+,.,..,index.css
+
+---
+src/index.css:1:@tailwind base;
+src/index.css:2:@tailwind components;
+src/index.css:3:@tailwind utilities;
+2026-02-18T20:14:15.947383Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+
+thinking
+**Reviewing project setup**
+
+So, the project is pretty minimal, requiring only Tailwind CSS v3.4.13, PostCSS/Autoprefixer, and a CSS file. There’s no build tool mentioned, but to use Tailwind, the user might have some kind of build setup outside of this context, which seems to be okay for this testbed. I think the next step is to open the skill file to see how it all fits together.
+exec
+bash -lc "sed -n '1,200p' \"/Users/suhongyi/.agents/skills/tailwind-frontend-copilot/SKILL.md\"" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/migration-v3 succeeded in 14ms:
+---
+name: tailwind-frontend-copilot
+description: Tailwind CSS frontend development, maintenance, and improvement copilot for Codex/OpenClaw. Use when tasks involve Tailwind setup, migration (v3 to v4), troubleshooting class generation or style regressions, stack-specific integration (Next.js, Vite + React, Vue/Nuxt/Svelte), design-system alignment, architecture tradeoff explanation, or style direction matching with explicit human decision gates.
+---
+
+# Tailwind Frontend Copilot
+
+## Overview
+
+Provide a decision-complete workflow for building and maintaining Tailwind-based frontend projects.
+Keep `SKILL.md` short and load `references/*.md` on demand.
+
+This skill is optimized for:
+- Next.js and Vite + React (priority)
+- Vue/Nuxt/Svelte (comparison and fallback guidance)
+- Tailwind v4.1 baseline with v3 migration support
+
+## Non-Negotiable Execution Rules
+
+1. Preserve existing design systems by default. Do not restyle aggressively unless Gate B approves.
+2026-02-18T20:14:36.673802Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+exec
+bash -lc "sed -n '1,200p' \"/Users/suhongyi/.agents/skills/tailwind-frontend-copilot/references/20-v3-to-v4-migration.md\"" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/migration-v3 succeeded in 14ms:
+# Tailwind v3 to v4 Migration
+
+## Table of Contents
+
+1. Migration intent and risk framing
+2. Pre-migration checklist
+3. Migration workflow
+4. Validation workflow
+5. Common failure categories
+6. Rollback strategy
+
+## Migration Intent and Risk Framing
+
+Use this guide when a repository is Tailwind v3 and target is v4.
+Migration is not only a package bump; it can affect build wiring, directives, and project conventions.
+
+Expected benefits:
+- modernized Tailwind workflow
+- cleaner token and directive usage
+- reduced historical configuration debt
+2026-02-18T20:14:40.260920Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+exec
+bash -lc "sed -n '1,200p' \"/Users/suhongyi/.agents/skills/tailwind-frontend-copilot/references/10-core-v4.md\"" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/migration-v3 succeeded in 20ms:
+# Tailwind Core v4 Reference
+
+## Table of Contents
+
+1. Mental model
+2. Minimal setup model
+3. Key v4 directives
+4. Class detection model
+5. Theming model
+6. High-value defaults
+7. Human intervention points
+
+## Mental Model
+
+Tailwind v4 keeps a utility-first model and moves toward CSS-first ergonomics.
+Treat Tailwind as a design-token compiler plus utility API surface.
+
+Core principle:
+- Define and govern tokens centrally.
+- Consume tokens with utilities in components.
+2026-02-18T20:14:43.570539Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+
+
+
+
+thinking
+**Outlining Tailwind Migration Steps**
+
+I have enough local instruction and baseline to work with. Now, I need to present the six requested sections concisely, including evidence from shell commands. For the migration to Tailwind v4, it's crucial to understand that it introduces new CSS-first directives and favors using 'import "tailwindcss"'. I'm realizing v4 still supports old @tailwind directives but emphasizes the new approach with single imports for generating layers. They also added 'theme' and 'utility' directives, which I need to keep in mind.
+thinking
+**Understanding Tailwind v4 Directives**
+
+I see that Tailwind v4 might accept either the new 'import' or the old 3-layer directives. The upgrade guide suggests replacing @tailwind base/components/utilities with @import "tailwindcss". Importantly, v4 can function without a config file, making it zero-config, though you can still use 'tailwind.config.js' or 'tailwind.config.ts' if you want. The new CSS-level @theme directive handles configuration, while source scanning is done via the @source directive. So, it seems that class detection in v4 now relies on this @source directive too!
+thinking
+**Planning Tailwind v4 Migration**
+
+I see there's also a 'theme' directive where tokens are defined in CSS. So when migrating from v3, content globs in tailwind.config.js will switch to the CSS-level @source, while tokens will move to @theme. Sounds credible!
+
+For PostCSS, v4 may not require it, but I can still use it alongside the CLI and other options like lightningcss.
+
+For the migration steps with the minimal repo, I'll bump Tailwind to ^4.x, consider keeping PostCSS, and update the CSS files to use '@import "tailwindcss";'. Additionally, I might suggest defining tokens with '@theme' and updating the postcss.config.js accordingly.
+thinking
+**Outlining Tailwind v4 Migration Steps**
+
+In Tailwind v4, the PostCSS plugin 'tailwindcss' is still functional, but I'm wondering if autoprefixer is necessary since it might be included in v4. I think it remains a separate entity, but v4 does use postcss-preset-env—still a bit uncertain there. 
+
+For the migration, I'll update content scanning by removing the content key and adding '@source' to CSS. We won't be using any plugins for typography or preflight, and since there's no build process, I'll suggest commands like ‘npx tailwindcss -i src/index.css -o dist/tailwind.css --watch’. 
+
+Next, I’ll consider migration scope, risks, and possible rollback steps involving package.json and tailwind.config.js.
+codex
+## Baseline
+- 项目结构与版本
+  - package.json: tailwindcss ^3.4.13, postcss ^8.4.47, autoprefixer ^10.4.20（依赖而非 devDependencies），无框架/构建工具声明。文件: package.json:1
+  - Tailwind 配置：最小化 v3 配置，content 指向 `./src/**/*.{js,jsx,ts,tsx}`，无 theme 扩展、无插件。文件: tailwind.config.js:1
+  - PostCSS：使用 `tailwindcss` 与 `autoprefixer` 插件。文件: postcss.config.js:1
+  - 样式入口：仅有 `src/index.css`，包含 v3 典型指令 `@tailwind base; @tailwind components; @tailwind utilities;`。文件: src/index.css:1
+- 代码用法扫描（证据）
+  - 未检出任何 `class=`/`className=`、`clsx/cva/cn/tw` 等动态类串用法（空结果）。
+  - 仅检出 `@tailwind` 指令三行：src/index.css:1-3
+- 基线结论
+  - 这是一个“最小 v3 + PostCSS 管线”的试验仓，无第三方 Tailwind 插件、无自定义 theme、无复杂类名来源，迁移面非常小，可直接按 v4 最小范式落地。
+
+## Risks
+- 扫描来源切换风险：v4 推荐用 `@source`（CSS 内）替代 v3 `content`（tailwind.config.js），若遗漏路径会导致样式未生成。
+- 指令模型变化：`@tailwind base/components/utilities` → `@import "tailwindcss";`，若后续有自定义 layer 覆盖，需验证顺序；当前仓库无该情况，风险低。
+- 配置收敛风险：删除 `tailwind.config.js` 后，历史 theme/插件配置将失效；当前无配置，风险低。
+- 工具链兼容性：仍使用 PostCSS 时需确保 `postcss`/`autoprefixer` 版本与 v4 兼容（当前版本新，通常可用）。
+- 动态类名潜在问题：若将来引入运行时拼接类名，v4 依旧无法推断，需要 safelist 或显式枚举。
+
+## GateA
+- 迁移范围
+  - 仅升级到 Tailwind v4，采用 CSS 内 `@import "tailwindcss";` 与 `@source`，移除 v3 专属 `tailwind.config.js` 中的 `content` 用法。
+- 令牌与模式
+  - 当前无自定义 token；暂不引入 `@theme`；Dark mode 策略保持默认（不在本次变更内）。
+- 构建与输出
+  - 以 Tailwind CLI 验证输出（无框架）；输出产物 `dist/tailwind.css` 作为校验依据。
+- 回滚边界
+  - 回滚到 v3：还原 package.json 的 tailwindcss 版本、恢复 `src/index.css` 的三段 `@tailwind` 指令、恢复 `tailwind.config.js`。
+
+## MigrationSteps
+- 建立安全分支
+  - `git switch -c chore/migrate-tailwind-v4`
+- 升级依赖（最小变更，保留 PostCSS 管线）
+  - npm: `npm i -D tailwindcss@latest && npm i -D postcss@latest autoprefixer@latest`
+  - 说明：将 Tailwind/构建链放入 devDependencies，避免生产安装体积。
+- CSS 指令迁移（v3 → v4）
+  - 将 `src/index.css` 的三行 `@tailwind base/components/utilities` 替换为：`@import "tailwindcss";`
+  - 在同一文件顶端或紧随其后，新增 v4 扫描来源：`@source "./src/**/*.{js,jsx,ts,tsx}";`
+  - 如后续需要 token，再引入：`@theme { /* 自定义tokens */ }`（本次不改动）
+- 配置文件收敛
+  - 暂时保留 `postcss.config.js` 不变（tailwindcss + autoprefixer）。
+  - 移除 `tailwind.config.js`（当前无有效配置；若需保守，可先重命名 `tailwind.config.js.bak`，观察无回归后再删除）。
+- 生成与验证（本地快速验证）
+  - 生成产物：`npx tailwindcss -i ./src/index.css -o ./dist/tailwind.css --minify`
+  - 校验点：
+    - 命令退出码为 0，`dist/tailwind.css` 文件存在且非空。
+    - CSS 体积合理（包含基础层与常用工具类）；无报错/警告堆栈。
+- 文档更新
+  - 在 `references/90-system-architecture-maintenance.md` 追加：组件样式来源、构建命令、v4 指令与 `@source` 路径约定。
+
+## Rollback
+- 代码回滚
+  - `git restore --source=HEAD~1 src/index.css postcss.config.js tailwind.config.js package.json`
+  - 或直接回到迁移前分支：`git switch -`，再 `git branch -D chore/migrate-tailwind-v4`
+- 依赖回滚
+  - 将 package.json 中 `tailwindcss` 版本还原到 `^3.4.13`，并执行 `npm i`
+- 构建验证（回滚后）
+  - `npx tailwindcss -i ./src/index.css -o ./dist/tailwind.css --minify` 应继续成功，且样式与迁移前一致
+
+## GateC
+- 验收清单
+  - 构建通过：`npx tailwindcss -i ./src/index.css -o ./dist/tailwind.css` 成功且无错误。
+  - 产物存在：`dist/tailwind.css` 非空，包含基础层与实用类。
+  - 覆盖一致：当前仓库无页面/组件，验证范围以产物可生成为准；如后续加入页面，再补充可视回归对比。
+  - 文档同步：已更新 `references/90-system-architecture-maintenance.md` 的构建与样式章节。
+- 放行条件
+  - 扫描来源 `@source` 与未来代码组织约定已确认。
+  - 无遗留 v3 专属配置依赖（已去除 tailwind.config.js 的 content 责任）。
+2026-02-18T20:15:07.908017Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+tokens used
+144,715
+## Baseline
+- 项目结构与版本
+  - package.json: tailwindcss ^3.4.13, postcss ^8.4.47, autoprefixer ^10.4.20（依赖而非 devDependencies），无框架/构建工具声明。文件: package.json:1
+  - Tailwind 配置：最小化 v3 配置，content 指向 `./src/**/*.{js,jsx,ts,tsx}`，无 theme 扩展、无插件。文件: tailwind.config.js:1
+  - PostCSS：使用 `tailwindcss` 与 `autoprefixer` 插件。文件: postcss.config.js:1
+  - 样式入口：仅有 `src/index.css`，包含 v3 典型指令 `@tailwind base; @tailwind components; @tailwind utilities;`。文件: src/index.css:1
+- 代码用法扫描（证据）
+  - 未检出任何 `class=`/`className=`、`clsx/cva/cn/tw` 等动态类串用法（空结果）。
+  - 仅检出 `@tailwind` 指令三行：src/index.css:1-3
+- 基线结论
+  - 这是一个“最小 v3 + PostCSS 管线”的试验仓，无第三方 Tailwind 插件、无自定义 theme、无复杂类名来源，迁移面非常小，可直接按 v4 最小范式落地。
+
+## Risks
+- 扫描来源切换风险：v4 推荐用 `@source`（CSS 内）替代 v3 `content`（tailwind.config.js），若遗漏路径会导致样式未生成。
+- 指令模型变化：`@tailwind base/components/utilities` → `@import "tailwindcss";`，若后续有自定义 layer 覆盖，需验证顺序；当前仓库无该情况，风险低。
+- 配置收敛风险：删除 `tailwind.config.js` 后，历史 theme/插件配置将失效；当前无配置，风险低。
+- 工具链兼容性：仍使用 PostCSS 时需确保 `postcss`/`autoprefixer` 版本与 v4 兼容（当前版本新，通常可用）。
+- 动态类名潜在问题：若将来引入运行时拼接类名，v4 依旧无法推断，需要 safelist 或显式枚举。
+
+## GateA
+- 迁移范围
+  - 仅升级到 Tailwind v4，采用 CSS 内 `@import "tailwindcss";` 与 `@source`，移除 v3 专属 `tailwind.config.js` 中的 `content` 用法。
+- 令牌与模式
+  - 当前无自定义 token；暂不引入 `@theme`；Dark mode 策略保持默认（不在本次变更内）。
+- 构建与输出
+  - 以 Tailwind CLI 验证输出（无框架）；输出产物 `dist/tailwind.css` 作为校验依据。
+- 回滚边界
+  - 回滚到 v3：还原 package.json 的 tailwindcss 版本、恢复 `src/index.css` 的三段 `@tailwind` 指令、恢复 `tailwind.config.js`。
+
+## MigrationSteps
+- 建立安全分支
+  - `git switch -c chore/migrate-tailwind-v4`
+- 升级依赖（最小变更，保留 PostCSS 管线）
+  - npm: `npm i -D tailwindcss@latest && npm i -D postcss@latest autoprefixer@latest`
+  - 说明：将 Tailwind/构建链放入 devDependencies，避免生产安装体积。
+- CSS 指令迁移（v3 → v4）
+  - 将 `src/index.css` 的三行 `@tailwind base/components/utilities` 替换为：`@import "tailwindcss";`
+  - 在同一文件顶端或紧随其后，新增 v4 扫描来源：`@source "./src/**/*.{js,jsx,ts,tsx}";`
+  - 如后续需要 token，再引入：`@theme { /* 自定义tokens */ }`（本次不改动）
+- 配置文件收敛
+  - 暂时保留 `postcss.config.js` 不变（tailwindcss + autoprefixer）。
+  - 移除 `tailwind.config.js`（当前无有效配置；若需保守，可先重命名 `tailwind.config.js.bak`，观察无回归后再删除）。
+- 生成与验证（本地快速验证）
+  - 生成产物：`npx tailwindcss -i ./src/index.css -o ./dist/tailwind.css --minify`
+  - 校验点：
+    - 命令退出码为 0，`dist/tailwind.css` 文件存在且非空。
+    - CSS 体积合理（包含基础层与常用工具类）；无报错/警告堆栈。
+- 文档更新
+  - 在 `references/90-system-architecture-maintenance.md` 追加：组件样式来源、构建命令、v4 指令与 `@source` 路径约定。
+
+## Rollback
+- 代码回滚
+  - `git restore --source=HEAD~1 src/index.css postcss.config.js tailwind.config.js package.json`
+  - 或直接回到迁移前分支：`git switch -`，再 `git branch -D chore/migrate-tailwind-v4`
+- 依赖回滚
+  - 将 package.json 中 `tailwindcss` 版本还原到 `^3.4.13`，并执行 `npm i`
+- 构建验证（回滚后）
+  - `npx tailwindcss -i ./src/index.css -o ./dist/tailwind.css --minify` 应继续成功，且样式与迁移前一致
+
+## GateC
+- 验收清单
+  - 构建通过：`npx tailwindcss -i ./src/index.css -o ./dist/tailwind.css` 成功且无错误。
+  - 产物存在：`dist/tailwind.css` 非空，包含基础层与实用类。
+  - 覆盖一致：当前仓库无页面/组件，验证范围以产物可生成为准；如后续加入页面，再补充可视回归对比。
+  - 文档同步：已更新 `references/90-system-architecture-maintenance.md` 的构建与样式章节。
+- 放行条件
+  - 扫描来源 `@source` 与未来代码组织约定已确认。
+  - 无遗留 v3 专属配置依赖（已去除 tailwind.config.js 的 content 责任）。

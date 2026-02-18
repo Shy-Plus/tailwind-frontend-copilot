@@ -1,0 +1,12 @@
+{
+  "repo_path": "/Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/style-next",
+  "stack": "nextjs",
+  "builder": "next",
+  "package_manager": "unknown",
+  "tailwind_version": "^4.1.3",
+  "postcss_mode": "@tailwindcss/postcss",
+  "tailwind_config_files": [],
+  "css_entries": ["app/globals.css"],
+  "has_tailwind_import": true,
+  "evidence": ["next"]
+}

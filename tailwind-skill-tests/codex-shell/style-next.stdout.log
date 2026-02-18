@@ -1,0 +1,359 @@
+2026-02-18T20:11:10.844630Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/feishu-pcec/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:11:10.844716Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/docx-skill/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:11:10.844722Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/one-skill-to-rule-them-all/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:11:10.844726Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/commit-analyzer/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:11:10.844729Z ERROR codex_core::codex: failed to load skill /opt/homebrew/lib/node_modules/openclaw/skills/food-order/SKILL.md: invalid YAML: mapping values are not allowed in this context at line 2 column 125
+2026-02-18T20:11:10.844732Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/feishu-card/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:11:10.844735Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/minimax-tts/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:11:10.844737Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/openclaw-self-backup/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:11:10.844740Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/openclaw-docs/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:11:10.844743Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/apple-docs-mcp/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:11:10.844745Z ERROR codex_core::codex: failed to load skill /opt/homebrew/lib/node_modules/openclaw/skills/canvas/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:11:10.844748Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/peekaboo/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:11:10.847169Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+OpenAI Codex v0.95.0 (research preview)
+--------
+workdir: /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/style-next
+model: gpt-5
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: medium
+reasoning summaries: auto
+session id: 019c7260-c67f-7573-ade4-43216859a962
+--------
+user
+请使用 tailwind-frontend-copilot 技能。允许并主动使用 shell 命令做证据采集。场景：性能/样式改进。不要修改文件。严格输出：## Baseline ## GateB ## StyleStrategy ## PerformancePlan ## Acceptance。
+mcp: figma starting
+mcp: playwright starting
+mcp: playwright ready
+mcp: figma ready
+mcp startup: ready: playwright, figma
+codex
+我先扫描项目结构与 Tailwind/Next 版本以建立基线证据。
+exec
+bash -lc 'ls -la' in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/style-next succeeded in 23ms:
+total 24
+drwxr-xr-x@ 7 suhongyi  staff  224 Feb 19 03:34 .
+drwxr-xr-x@ 6 suhongyi  staff  192 Feb 19 03:34 ..
+drwxr-xr-x@ 4 suhongyi  staff  128 Feb 19 03:34 app
+-rw-r--r--@ 1 suhongyi  staff   18 Feb 19 03:34 next.config.mjs
+-rw-r--r--@ 1 suhongyi  staff  204 Feb 19 03:34 package.json
+-rw-r--r--@ 1 suhongyi  staff   67 Feb 19 03:34 postcss.config.mjs
+drwxr-xr-x@ 2 suhongyi  staff   64 Feb 19 03:34 styles
+2026-02-18T20:11:18.604525Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+exec
+bash -lc "sed -n '1,200p' package.json" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/style-next succeeded in 20ms:
+{
+  "name": "style-next",
+  "private": true,
+  "version": "0.0.1",
+  "dependencies": {
+    "next": "15.1.0",
+    "react": "18.3.1",
+    "tailwindcss": "^4.1.3",
+    "@tailwindcss/postcss": "^4.1.3"
+  }
+}
+2026-02-18T20:11:21.895184Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+exec
+bash -lc "sed -n '1,160p' postcss.config.mjs" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/style-next succeeded in 21ms:
+export default {
+  plugins: {
+    '@tailwindcss/postcss': {}
+  }
+}
+2026-02-18T20:11:25.437110Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+exec
+bash -lc "sed -n '1,200p' next.config.mjs" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/style-next succeeded in 19ms:
+export default {}
+2026-02-18T20:11:29.198563Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+exec
+bash -lc 'ls -la app && rg -n "''^" -n app -S --no-heading' in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/style-next succeeded in 34ms:
+total 16
+drwxr-xr-x@ 4 suhongyi  staff  128 Feb 19 03:34 .
+drwxr-xr-x@ 7 suhongyi  staff  224 Feb 19 03:34 ..
+-rw-r--r--@ 1 suhongyi  staff  125 Feb 19 03:34 globals.css
+-rw-r--r--@ 1 suhongyi  staff  119 Feb 19 03:34 page.tsx
+app/globals.css:1:@import "tailwindcss";
+app/globals.css:2:
+app/globals.css:3:@theme {
+app/globals.css:4:  --color-brand-500: #0a7ea4;
+app/globals.css:5:  --font-display: "Avenir Next", "PingFang SC", sans-serif;
+app/globals.css:6:}
+app/page.tsx:1:export default function Page() {
+app/page.tsx:2:  return <main className="min-h-screen bg-brand-500 text-white p-10">Landing</main>
+app/page.tsx:3:}
+2026-02-18T20:11:32.927201Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+exec
+bash -lc 'ls -la styles && rg -n "''^" -n styles -S --no-heading' in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/style-next exited 1 in 18ms:
+total 0
+drwxr-xr-x@ 2 suhongyi  staff   64 Feb 19 03:34 .
+drwxr-xr-x@ 7 suhongyi  staff  224 Feb 19 03:34 ..
+2026-02-18T20:11:37.975102Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+exec
+bash -lc "sed -n '1,200p' \"/Users/suhongyi/.agents/skills/tailwind-frontend-copilot/SKILL.md\"" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/style-next succeeded in 19ms:
+---
+name: tailwind-frontend-copilot
+description: Tailwind CSS frontend development, maintenance, and improvement copilot for Codex/OpenClaw. Use when tasks involve Tailwind setup, migration (v3 to v4), troubleshooting class generation or style regressions, stack-specific integration (Next.js, Vite + React, Vue/Nuxt/Svelte), design-system alignment, architecture tradeoff explanation, or style direction matching with explicit human decision gates.
+---
+
+# Tailwind Frontend Copilot
+
+## Overview
+
+Provide a decision-complete workflow for building and maintaining Tailwind-based frontend projects.
+Keep `SKILL.md` short and load `references/*.md` on demand.
+
+This skill is optimized for:
+- Next.js and Vite + React (priority)
+- Vue/Nuxt/Svelte (comparison and fallback guidance)
+- Tailwind v4.1 baseline with v3 migration support
+
+## Non-Negotiable Execution Rules
+
+1. Preserve existing design systems by default. Do not restyle aggressively unless Gate B approves.
+2026-02-18T20:11:42.045187Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+
+thinking
+**Reviewing references**
+
+I need to check some references for style and performance improvements. Entry 3 points out two documents: one about style matching and another on architecture differences. It seems important to review these as they could provide valuable insights into enhancing performance. Let's take a closer look at both documents to see what improvements I can apply. It'll be interesting to learn from them!
+exec
+bash -lc "sed -n '1,200p' \"/Users/suhongyi/.agents/skills/tailwind-frontend-copilot/references/40-style-matching-playbook.md\"" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/style-next succeeded in 15ms:
+# Style Matching Playbook
+
+## Table of Contents
+
+1. Objective
+2. Three style modes
+3. Selection workflow
+4. Execution rules per mode
+5. Validation checklist
+6. Anti-patterns
+
+## Objective
+
+Choose a style strategy that matches business and system constraints.
+Do not default to visual resets in mature products.
+
+## Three Style Modes
+
+### Mode 1: Inherit Existing Design System (Default)
+
+2026-02-18T20:11:48.394469Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+exec
+bash -lc "sed -n '1,200p' \"/Users/suhongyi/.agents/skills/tailwind-frontend-copilot/references/70-architecture-differences-matrix.md\"" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/style-next succeeded in 12ms:
+# Architecture Differences Matrix
+
+## Table of Contents
+
+1. Comparison dimensions
+2. Stack matrix
+3. Decision guidance
+4. Frequent failure patterns
+
+## Comparison Dimensions
+
+This matrix compares required dimensions:
+- Build pipeline
+- Content/source detection behavior
+- SSR/RSC impact
+- CSS Modules `@reference` usage
+- Upgrade path (v3 to v4)
+- Common failures
+
+## Stack Matrix
+2026-02-18T20:11:50.892508Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+
+
+
+
+
+
+thinking
+**Reviewing Tailwind features**
+
+I’m thinking about how maintenance debugging might tie into performance and style improvements. The user asked for specific sections like Baseline, GateB, StyleStrategy, PerformancePlan, and Acceptance. I have to check if Tailwind v4 is set with plugins and how they’re using @theme custom properties in globals.css, especially for brand colors and fonts. In v4, using class bg-brand-500 should work if it maps correctly, reflecting how tokens can be defined in @theme.
+thinking
+**Considering performance improvements**
+
+I'm looking into performance improvements since Next.js 15, particularly regarding CSS bundling. I need to ensure that global CSS is imported correctly, which should happen in `app/layout.tsx`. However, this file isn’t present, which could cause issues since the app won’t build without it. The user requested no file modifications, so I’ll mark this as a risk. For improving style and performance, we might propose using CSS `@layer`, but I need to check how Tailwind v4 handles this since it switched to lightningcss.
+thinking
+**Reviewing Tailwind v4 features**
+
+I’m recalling that Tailwind v4 operates as a PostCSS plugin using @tailwind directives. It has implemented built-in "content-aware" scanning and dropped the default config file. In `globals.css`, they've imported "tailwindcss," which impacts performance. 
+
+To enhance performance, I should advise avoiding arbitrary value combinations that create excessive variants, as JIT is the default now. It scans content automatically, including JS/TS usage. 
+
+I’ll suggest using class composition to prevent invalid dynamic class strings and ensure accessibility with tools like `group`, `has-*`, and `focus-visible`. Additionally, we could explore container queries and set custom typography defaults.
+thinking
+**Configuring Tailwind v4 settings**
+
+In Tailwind v4, to set up font families, I can define the `--font-sans` variable. They only defined `--font-display`, which isn't being used. I might suggest setting `--font-sans` to `var(--font-display)` or using `font-[var(--font-display)]`. 
+
+For color tokens, brand-500 is defined, but I could propose scaling it from brand-50 to brand-900, along with defining `--color-brand-600` and `--color-brand-700` for hover effects. Since file modifications aren't allowed, I’ll create a plan that emphasizes CSS performance, such as leveraging tree-shaking and configuring optimizations for better efficiency.
+thinking
+**Outlining Tailwind v4 configuration**
+
+In Tailwind v4, to disable preflight, I might need to use `@custom-variant`, but I'm uncertain. I can propose adding `@source` for content scanning to improve development speed by focusing on specific files, `app/**/*.{ts,tsx}`. This approach helps reduce scanning time. 
+
+For the plan, I’ll outline sections like Baseline, GateB, StyleStrategy, PerformancePlan, and Acceptance. I need to recommend "Incremental Evolution" mode, focusing on typography improvements while emphasizing the necessity of not modifying files. We’ll also define measurable outcomes for success.
+thinking
+**Developing a Style Strategy**
+
+In my StyleStrategy, I need to define the `--font-sans` mapping to `--font-display` and expand the brand color scale while adding neutral tones. I'll maintain the default spacing and unify the border radii. 
+
+For typography, I want to implement `text-balance` for headings, `leading-relaxed` for body text, and `tracking-tight` for large headings. I also need to ensure that `bg-brand-500` pairs well with `text-white` and meets AA contrast standards. I can estimate the contrast ratio of the brand color #0a7ea4 with white, possibly using a small Python script for verification.
+exec
+bash -lc "python3 - << 'PY'
+from colorsys import rgb_to_hls
+
+def rel_lum(c):
+    # c in 0..255
+    s=c/255.0
+    return s/12.92 if s<=0.03928 else ((s+0.055)/1.055)**2.4
+
+def luminance(hex):
+    hex=hex.lstrip('#')
+    r=int(hex[0:2],16); g=int(hex[2:4],16); b=int(hex[4:6],16)
+    R=rel_lum(r); G=rel_lum(g); B=rel_lum(b)
+    return 0.2126*R + 0.7152*G + 0.0722*B
+
+def contrast(c1,c2):
+    L1=max(luminance(c1),luminance(c2))
+    L2=min(luminance(c1),luminance(c2))
+    return (L1+0.05)/(L2+0.05)
+
+print('contrast #0a7ea4 vs white:', round(contrast('#0a7ea4','#ffffff'),2))
+print('contrast #0a7ea4 vs black:', round(contrast('#0a7ea4','#000000'),2))
+PY" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/style-next succeeded in 33ms:
+contrast #0a7ea4 vs white: 4.63
+contrast #0a7ea4 vs black: 4.53
+2026-02-18T20:12:18.296002Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+
+
+thinking
+**Considering performance optimizations**
+
+I’ve got some design specifications to consider. The contrast ratio for normal text is good, passing at 4.63, which exceeds the 4.5 requirement. I should add `motion-safe:transition` for hover effects while ensuring no dynamic class composition is present. It’s important to use system fonts like Avenir Next to avoid network-related issues. Also, I need to check the CSS size, ensuring it stays under 20 KB, while confirming that visual parity is maintained.
+thinking
+**Examining CSS efficiency**
+
+In version 4, I'm thinking about the CSS size per used classes. Proposing "global CSS under 10 KB uncompressed" seems unrealistic, so I’ll say we should avoid unexpected utility bloat and only include necessary utilities in the CSS file. To validate this, I can use commands like `rg` checks, `next build` for summarizing, and `wc -c .next/static/css/*.css`. I'll structure my final answer with five sections, ensuring I reference specific lines in files with the correct path and specify versions in `package.json`.
+codex
+## Baseline
+- 框架/版本：Next.js 15.1.0、React 18.3.1、Tailwind CSS 4.1.3（@tailwindcss/postcss 集成）。证据：package.json:1, package.json:6-9
+- PostCSS 接入：仅启用 '@tailwindcss/postcss' 插件。证据：postcss.config.mjs:1-5
+- Tailwind v4 用法：CSS 入口通过 `@import "tailwindcss";`，并使用 `@theme` 定义令牌（颜色/字体）。证据：app/globals.css:1, app/globals.css:3-6
+- 令牌现状：已定义 `--color-brand-500: #0a7ea4;` 与 `--font-display`，页面使用 `bg-brand-500` 与 `text-white`。证据：app/globals.css:4, app/page.tsx:2
+- 对比度校验：#0a7ea4 与白色对比度≈4.63，满足 WCAG AA 正文阈值≥4.5（本次会话内计算）。
+- 结构最小：`app/` 下仅有 `globals.css` 与 `page.tsx`，无 `tailwind.config.*`（符合 v4 无配置默认），`styles/` 为空。证据：ls 与 rg 输出
+- 潜在风险：缺少 `app/layout.tsx` 可能导致全局样式未注入及构建失败（Next App Router 必备）。当前仅做风格/性能方案，不改文件。
+
+## GateB
+- 建议风格模式：Incremental Evolution（渐进演进）
+- 选择理由：已有品牌主色与最小令牌，不宜做全面视觉重置；在保持现有色彩与结构前提下补齐令牌与版式可快速提升质感、风险最低。
+- 变更边界：仅增量补齐主题令牌与可访问性状态样式；不更改信息架构、不更换品牌方向、不引入破坏性全局重置。
+- 非目标：不做重品牌、不调整组件 API、不引入大型 UI 套件。
+
+## StyleStrategy
+- 主题令牌（不破坏现有）：
+  - 字体映射：在 `@theme` 中将 `--font-sans` 指向 `--font-display`，确保 `font-sans` 即用即得（保留系统与中文回退）。参考：app/globals.css:3-6
+  - 品牌色阶：在现有 `--color-brand-500` 基础上补 `--color-brand-600/700` 以用于 hover/focus 阶段，保持统一视觉层级。
+  - 中性色：按需补一档 `--color-gray-900` 与 `--color-gray-500` 以便文本/分隔线统一。
+- 版式系统：
+  - 标题：大标题使用 `text-balance tracking-tight leading-tight`，正文使用 `leading-relaxed text-pretty` 提升可读性。
+  - 容器：采用 `.container mx-auto px-6 md:px-8` 的页面包裹策略，保证边距与网格节律统一。
+- 交互与可访问性：
+  - 焦点环：统一 `focus-visible:outline-none focus-visible:ring-2 ring-brand-500/40`，可读且不刺眼。
+  - 悬停/按压：`motion-safe:transition-colors`，并提供 `hover:bg-brand-600 active:bg-brand-700` 渐进层级。
+  - 降噪动效：`motion-reduce:transition-none`，尊重用户“减少动效”设置。
+- 组件边界与语义：
+  - 保持实用类组合，不进行运行时拼接；对重复组合以原子为主，必要时引入极少量 `@utility` 自定义工具类。
+
+## PerformancePlan
+- 内容扫描收敛：
+  - 在全局 CSS 顶部声明 `@source "app/**/*.{ts,tsx}";` 以缩小扫描面，降低开发时编译与热更开销（Tailwind v4 推荐做法）。
+- 动态类消除与审计：
+  - 审核运行时拼接类名，使用映射表 + `clsx/cva` 保持类名静态化；当前检索仅发现静态类。证据：app/page.tsx:2
+  - 命令（审计示例）：`rg -n \"class(Name)?=\\\"[^\"]*\\$\\{\" app`（应无结果）；`rg -n \"bg-\\$|text-\\$|p-\\$|m-\\$\" app`
+- 构建与体积验证（建议在本仓库执行）：
+  - 生产构建：`npm i && npx next build`（需先补 `app/layout.tsx` 才可通过；此处仅给出验证路径）
+  - CSS 体积：`du -h .next/static/css || true`、`wc -c .next/static/css/*.css || true`
+  - 变更前后对比：`git diff --stat && git diff | rg \"@theme|@source|ring-brand|brand-6|brand-7\"`
+- RSC 与客户端边界：
+  - 页面/组件默认 Server 组件；仅在确需交互时标注 `\"use client\"`，避免不必要的客户端包体与水合。
+- 资源与字体：
+  - 继续采用系统字体栈（当前 `--font-display` 已含中文与无衬线回退），避免网络字体阻塞；若后续引入 `next/font`，需度量 LCP/FOUT。
+
+## Acceptance
+- 风格验收：
+  - 主色层级统一，hover/focus/active 显示一致；正文/标题排版符合上文版式策略；对比度≥AA（正文≥4.5，按钮文本≥4.5）。
+- 性能验收：
+  - Tailwind 扫描面已限制在 `app/**/*.{ts,tsx}`；无运行时类名拼接；生产构建 CSS 无异常膨胀（仅包含使用到的工具类）。
+- 构建与回归：
+  - `next build` 成功（补齐必要 `app/layout.tsx` 后验证）；关键页面视觉无回归；交互状态在键鼠与触屏下一致。
+- 可观测性与回滚：
+  - 通过 `git` 粒度小的提交记录变更；出现回归可一键回滚到变更前状态。
+- 后续动作（需您确认 Gate B 后执行）：
+  - 按上述 StyleStrategy 补齐极少量 `@theme` 令牌与焦点环策略；声明 `@source`；提交 PR 并给出前后截图与构建体积对比报告。
+2026-02-18T20:12:51.503353Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+tokens used
+160,611
+## Baseline
+- 框架/版本：Next.js 15.1.0、React 18.3.1、Tailwind CSS 4.1.3（@tailwindcss/postcss 集成）。证据：package.json:1, package.json:6-9
+- PostCSS 接入：仅启用 '@tailwindcss/postcss' 插件。证据：postcss.config.mjs:1-5
+- Tailwind v4 用法：CSS 入口通过 `@import "tailwindcss";`，并使用 `@theme` 定义令牌（颜色/字体）。证据：app/globals.css:1, app/globals.css:3-6
+- 令牌现状：已定义 `--color-brand-500: #0a7ea4;` 与 `--font-display`，页面使用 `bg-brand-500` 与 `text-white`。证据：app/globals.css:4, app/page.tsx:2
+- 对比度校验：#0a7ea4 与白色对比度≈4.63，满足 WCAG AA 正文阈值≥4.5（本次会话内计算）。
+- 结构最小：`app/` 下仅有 `globals.css` 与 `page.tsx`，无 `tailwind.config.*`（符合 v4 无配置默认），`styles/` 为空。证据：ls 与 rg 输出
+- 潜在风险：缺少 `app/layout.tsx` 可能导致全局样式未注入及构建失败（Next App Router 必备）。当前仅做风格/性能方案，不改文件。
+
+## GateB
+- 建议风格模式：Incremental Evolution（渐进演进）
+- 选择理由：已有品牌主色与最小令牌，不宜做全面视觉重置；在保持现有色彩与结构前提下补齐令牌与版式可快速提升质感、风险最低。
+- 变更边界：仅增量补齐主题令牌与可访问性状态样式；不更改信息架构、不更换品牌方向、不引入破坏性全局重置。
+- 非目标：不做重品牌、不调整组件 API、不引入大型 UI 套件。
+
+## StyleStrategy
+- 主题令牌（不破坏现有）：
+  - 字体映射：在 `@theme` 中将 `--font-sans` 指向 `--font-display`，确保 `font-sans` 即用即得（保留系统与中文回退）。参考：app/globals.css:3-6
+  - 品牌色阶：在现有 `--color-brand-500` 基础上补 `--color-brand-600/700` 以用于 hover/focus 阶段，保持统一视觉层级。
+  - 中性色：按需补一档 `--color-gray-900` 与 `--color-gray-500` 以便文本/分隔线统一。
+- 版式系统：
+  - 标题：大标题使用 `text-balance tracking-tight leading-tight`，正文使用 `leading-relaxed text-pretty` 提升可读性。
+  - 容器：采用 `.container mx-auto px-6 md:px-8` 的页面包裹策略，保证边距与网格节律统一。
+- 交互与可访问性：
+  - 焦点环：统一 `focus-visible:outline-none focus-visible:ring-2 ring-brand-500/40`，可读且不刺眼。
+  - 悬停/按压：`motion-safe:transition-colors`，并提供 `hover:bg-brand-600 active:bg-brand-700` 渐进层级。
+  - 降噪动效：`motion-reduce:transition-none`，尊重用户“减少动效”设置。
+- 组件边界与语义：
+  - 保持实用类组合，不进行运行时拼接；对重复组合以原子为主，必要时引入极少量 `@utility` 自定义工具类。
+
+## PerformancePlan
+- 内容扫描收敛：
+  - 在全局 CSS 顶部声明 `@source "app/**/*.{ts,tsx}";` 以缩小扫描面，降低开发时编译与热更开销（Tailwind v4 推荐做法）。
+- 动态类消除与审计：
+  - 审核运行时拼接类名，使用映射表 + `clsx/cva` 保持类名静态化；当前检索仅发现静态类。证据：app/page.tsx:2
+  - 命令（审计示例）：`rg -n \"class(Name)?=\\\"[^\"]*\\$\\{\" app`（应无结果）；`rg -n \"bg-\\$|text-\\$|p-\\$|m-\\$\" app`
+- 构建与体积验证（建议在本仓库执行）：
+  - 生产构建：`npm i && npx next build`（需先补 `app/layout.tsx` 才可通过；此处仅给出验证路径）
+  - CSS 体积：`du -h .next/static/css || true`、`wc -c .next/static/css/*.css || true`
+  - 变更前后对比：`git diff --stat && git diff | rg \"@theme|@source|ring-brand|brand-6|brand-7\"`
+- RSC 与客户端边界：
+  - 页面/组件默认 Server 组件；仅在确需交互时标注 `\"use client\"`，避免不必要的客户端包体与水合。
+- 资源与字体：
+  - 继续采用系统字体栈（当前 `--font-display` 已含中文与无衬线回退），避免网络字体阻塞；若后续引入 `next/font`，需度量 LCP/FOUT。
+
+## Acceptance
+- 风格验收：
+  - 主色层级统一，hover/focus/active 显示一致；正文/标题排版符合上文版式策略；对比度≥AA（正文≥4.5，按钮文本≥4.5）。
+- 性能验收：
+  - Tailwind 扫描面已限制在 `app/**/*.{ts,tsx}`；无运行时类名拼接；生产构建 CSS 无异常膨胀（仅包含使用到的工具类）。
+- 构建与回归：
+  - `next build` 成功（补齐必要 `app/layout.tsx` 后验证）；关键页面视觉无回归；交互状态在键鼠与触屏下一致。
+- 可观测性与回滚：
+  - 通过 `git` 粒度小的提交记录变更；出现回归可一键回滚到变更前状态。
+- 后续动作（需您确认 Gate B 后执行）：
+  - 按上述 StyleStrategy 补齐极少量 `@theme` 令牌与焦点环策略；声明 `@source`；提交 PR 并给出前后截图与构建体积对比报告。

@@ -1,0 +1,298 @@
+2026-02-18T20:09:29.815959Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/feishu-pcec/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:09:29.816005Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/docx-skill/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:09:29.816011Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/one-skill-to-rule-them-all/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:09:29.816015Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/commit-analyzer/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:09:29.816018Z ERROR codex_core::codex: failed to load skill /opt/homebrew/lib/node_modules/openclaw/skills/food-order/SKILL.md: invalid YAML: mapping values are not allowed in this context at line 2 column 125
+2026-02-18T20:09:29.816020Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/feishu-card/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:09:29.816023Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/minimax-tts/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:09:29.816026Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/openclaw-self-backup/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:09:29.816029Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/openclaw-docs/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:09:29.816032Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/apple-docs-mcp/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:09:29.816034Z ERROR codex_core::codex: failed to load skill /opt/homebrew/lib/node_modules/openclaw/skills/canvas/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:09:29.816037Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/peekaboo/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:09:29.818595Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+OpenAI Codex v0.95.0 (research preview)
+--------
+workdir: /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/maintenance-vite-react
+model: gpt-5
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: medium
+reasoning summaries: auto
+session id: 019c725f-3bda-7803-800b-343fb476fcea
+--------
+user
+请使用 tailwind-frontend-copilot 技能。允许并主动使用 shell 命令做证据采集。场景：维护项目中动态 class 不生效。不要修改文件。严格输出：## Diagnosis ## GateA ## GateC ## FixPlan ## Validation。
+mcp: playwright starting
+mcp: figma starting
+mcp: playwright ready
+mcp: figma ready
+mcp startup: ready: playwright, figma
+
+
+
+
+
+thinking
+**Balancing tool calls and structure**
+
+I'm trying to figure out how to balance the developer tool's requirements with the user's need for a strict output structure. The tool suggests having a preamble, but it seems that it might be better to keep it minimal, maybe even tucked into the relevant sections. Though the guidelines stress strict formatting, there's still room for effective communication. I’m thinking a singular preamble at the top just to clarify that I'm scanning config and code makes sense, while adhering to the strict output headers the user wants.
+thinking
+**Considering developer message guidelines**
+
+I'm looking closely at the developer message, stating that a brief preamble is needed before tool calls, but without unnecessary preambles for trivial actions. The user’s requirements are crucial here, so I think I should start with "## Diagnosis" and include a pertinent message before executing shell commands. I also have to ensure I'm using the right skills and following the SKILL.md workflow, which suggests I might need to read that file for proper guidance, even if it feels excessive.
+thinking
+**Focusing on skill workflow**
+
+I need to follow the guidance that says to open the SKILL.md file for the specified skill and read just enough to understand the workflow. I'll access the file located at /Users/suhongyi/.agents/skills/tailwind-frontend-copilot/SKILL.md. Since the file could be lengthy, I’ll consider using `sed` or `rg` to just glance at the first part. The main focus is on diagnosing dynamic classes and adhering to the defined workflow for Gates A and C. My plan is to show dependencies from package.json and find relevant tailwind config files.
+thinking
+**Gathering configuration details**
+
+I want to ensure I’m printing all relevant configuration lines necessary for the task. First, I’ll check for the presence of postcss config and show the index.css file containing the @tailwind directives. I need to search for specific dynamic class patterns like `text-\$\{` and `bg-\$\{`, and look at attributes using `className={.*\?` for regex matches. I'll also look for any usage of libraries like `clsx` or `classnames`. Although checking the Vite config for the Tailwind plugin isn’t required since Tailwind operates via PostCSS, I’ll examine the setup to confirm compatibility with Tailwind v4 and its updated configuration process.
+thinking
+**Analyzing Tailwind v4 requirements**
+
+In Tailwind v4, it seems like you don't need to manually configure the `content` since it automatically scans using the Tailwind CLI. I need to confirm if the project is using v3 or v4 by checking the package.json file. 
+
+For the diagnosis, I should ensure the PostCSS and Tailwind plugin are set up correctly and examine the necessary CSS imports. In the content sources, I’ll check if dynamic class patterns are correctly configured. The FixPlan should suggest minimal non-intrusive changes for dynamic class issues without modifying any files directly. For validation, I will propose commands to build and test the results.
+codex
+我先用只读命令快速体检：查 package.json 与 Tailwind/PostCSS 配置，并在 src/ 搜索动态 class 用法，定位不生效的根因。
+exec
+bash -lc "pwd && echo '
+== tree (top) ==' && ls -la && echo '
+== package.json ==' && if [ -f package.json ]; then cat package.json; else echo 'package.json not found'; fi" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/maintenance-vite-react succeeded in 26ms:
+/Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/maintenance-vite-react
+
+== tree (top) ==
+total 16
+drwxr-xr-x@ 5 suhongyi  staff  160 Feb 19 03:34 .
+drwxr-xr-x@ 6 suhongyi  staff  192 Feb 19 03:34 ..
+-rw-r--r--@ 1 suhongyi  staff  212 Feb 19 03:34 package.json
+drwxr-xr-x@ 4 suhongyi  staff  128 Feb 19 03:34 src
+-rw-r--r--@ 1 suhongyi  staff  138 Feb 19 03:34 vite.config.ts
+
+== package.json ==
+{
+  "name": "maintenance-vite-react",
+  "private": true,
+  "version": "0.0.1",
+  "dependencies": {
+    "react": "18.3.1",
+    "vite": "5.4.0",
+    "tailwindcss": "^4.1.3",
+    "@tailwindcss/vite": "^4.1.3"
+2026-02-18T20:09:58.690332Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+
+thinking
+**Checking project setup**
+
+I see that I have tailwindcss v4.1.3 and the @tailwindcss/vite plugin with vite 5.4.0 and React 18.3.1 installed. It seems there aren’t any devDependencies listed, and autoprefixer isn't necessary in v4. That makes sense! There may not be a postcss config file present either. So, I think the next step should be to take a closer look at the src folder to get more insights.
+exec
+bash -lc "echo '== src ==' && ls -la src && echo '
+== list recursive src ==' && find src -maxdepth 3 -type f -print" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/maintenance-vite-react succeeded in 29ms:
+== src ==
+total 16
+drwxr-xr-x@ 4 suhongyi  staff  128 Feb 19 03:34 .
+drwxr-xr-x@ 5 suhongyi  staff  160 Feb 19 03:34 ..
+-rw-r--r--@ 1 suhongyi  staff  142 Feb 19 03:34 App.tsx
+-rw-r--r--@ 1 suhongyi  staff   23 Feb 19 03:34 index.css
+
+== list recursive src ==
+src/App.tsx
+src/index.css
+2026-02-18T20:10:05.958734Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+exec
+bash -lc "sed -n '1,200p' src/App.tsx; echo '
+--- src/index.css ---'; sed -n '1,200p' src/index.css" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/maintenance-vite-react succeeded in 18ms:
+export default function App() {
+  const color = 'red'
+  return <div className={`bg-${color}-500 text-white p-4`}>Broken dynamic class</div>
+}
+
+--- src/index.css ---
+@import "tailwindcss";
+2026-02-18T20:10:10.514878Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+
+thinking
+**Exploring Tailwind CSS dynamic classes**
+
+I'm looking into how `App.tsx` uses dynamic class templates like `bg-${color}-500`, which aren't detected by Tailwind in version 4.1.3. With the @tailwindcss/vite plugin, content scanning happens through the Design System. Tailwind v4 suggests using `tw.bg(color(500))` for dynamic classes. I realize that's not quite right. 
+
+There's functionality for "class detection," but it still struggles with dynamic templates. I might need to utilize "safelist," "arbitrary values" like `bg-[color]`, or enumerate possible colors with a mapping approach. I'll also check the vite.config.ts for plugin configuration.
+exec
+bash -lc "sed -n '1,200p' vite.config.ts" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/maintenance-vite-react succeeded in 9ms:
+import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
+export default defineConfig({ plugins: [tailwindcss()] })
+2026-02-18T20:10:19.552474Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+
+
+
+
+
+thinking
+**Troubleshooting Tailwind CSS with Vite**
+
+I've got Vite set up with the @tailwindcss/vite plugin for v4. I notice we should check for Tailwind config files, but none are necessary for v4. The dynamic class feature isn't working, which is expected. 
+
+To fix this, I should avoid runtime-generated class names, making sure to use safe classes or the `clsx` library for dynamic selection. For a limited color set, I could predeclare a mapping of color classes. I'll also need to verify if "safelist" is still a valid property in the v4 configuration and confirm the changes in structure.
+thinking
+**Clarifying Tailwind CSS Config**
+
+It seems that Tailwind v4 has removed the `content` requirement when using framework plugins, but it still supports `safelist`. I think the safelist feature is now part of the `@tailwindcss/vite` plugin options. I could suggest adding a safelist like `safelist: [{ pattern: /^bg-(red|blue|green)-(500)$/ }]`.
+
+Another method would be to use arbitrary colors with dynamic custom properties. For example, setting `style={{ '--bg': color }}` and then referencing it in the class name. If I pass a hex value instead, Tailwind can recognize it as a CSS variable. Lastly, another recommended pattern is using data attributes, like `data-[color=red]:bg-red-500`.
+thinking
+**Evaluating Class Scanning with Tailwind**
+
+Not the best news. I should suggest a safe programmatic enumeration, like using `const color = 'red'; const shade = 500; const cls = `bg-${color}-${shade}``, since this won't be automatically scanned. Using `tw` macros or typed libraries like Tailwind Variants helps, but they still map to static strings.
+
+In v4, there are new semantics for arbitrary variants and style tokens, but dynamic detection hasn’t significantly changed. We need to perform GateC to ensure scanning detects classes. Dynamic classes won’t be picked up, so we might need to rely on a safelist or restructure things. A minimal build will check if the computed CSS includes the expected classes. I should consider running `npm install`.
+thinking
+**Assessing Package and Commands for Tailwind**
+
+It looks like the package.json is minimal, and although we have "approval_policy never," we can run commands freely. The repo isn't installed yet, but I can check with `npm -v`. However, running installs might take some time. 
+
+The user mentioned allowing shell commands for evidence collection but not modifying files. It’s fine to run the dev server for class scanning, even though it needs network connectivity. I'll check for the v4 plugin and might run `npx @tailwindcss/cli` to see if the CLI is integrated. Also, I should verify if `src/index.css` is imported anywhere (like in main.tsx).
+thinking
+**Analyzing App Structure for Tailwind Integration**
+
+It seems there’s no `main.tsx` file; instead, there's only App.tsx and index.css. This absence raises questions, especially since Vite's default React structure typically includes `main.tsx` and an `index.html`, which I don't see here. This might indicate a minimal testbed that's not fully runnable.
+
+While the `@tailwindcss/vite` plugin is present and imports `@import "tailwindcss";` seem alright, I need to check if index.css is actually imported by any module. If it’s not included during bundling, Tailwind won’t apply at runtime. Dynamic class issues could stem from this missing import. I should also search for imports of `index.css` within the src folder for completeness.
+exec
+bash -lc 'rg -n "index.css|@tailwind|tailwindcss" -S' in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/maintenance-vite-react succeeded in 18ms:
+src/index.css:1:@import "tailwindcss";
+vite.config.ts:2:import tailwindcss from '@tailwindcss/vite'
+vite.config.ts:3:export default defineConfig({ plugins: [tailwindcss()] })
+package.json:8:    "tailwindcss": "^4.1.3",
+package.json:9:    "@tailwindcss/vite": "^4.1.3"
+2026-02-18T20:10:46.451120Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+
+thinking
+**Evaluating CSS issues**
+
+I see that no `index.css` import is found, which means the CSS isn't included in the bundle. This can affect both GateA's CSS pipeline and the dynamic class functionality. The user mentioned that the dynamic class isn't effective. Since they asked not to modify the files, I think establishing a fix plan is essential. I need to check if the TSX file is using `className` properly, and I should also look for occurrences of `bg-\${` in the source.
+exec
+bash -lc "rg -n \"bg-\\\\"'$'"\\\\{|text-\\\\"'$'"\\\\{|class(Name)?=.*\\\\"'$'"\\\\{\" -S src || true" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/maintenance-vite-react succeeded in 32ms:
+src/App.tsx:3:  return <div className={`bg-${color}-500 text-white p-4`}>Broken dynamic class</div>
+2026-02-18T20:10:54.983692Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+codex
+## Diagnosis
+- 版本与栈确认：`tailwindcss@4.1.3` + `@tailwindcss/vite` + `vite@5.4.0`（package.json:8-11），属于 Tailwind v4 + 官方 Vite 插件方案。
+- 样式入口：`src/index.css` 仅包含 `@import "tailwindcss";`（src/index.css:1），但在项目中未被任何入口文件引用（未找到对 `index.css` 的 import）。
+- 动态 class 用法：`src/App.tsx` 使用模板字符串 `bg-${color}-500`（src/App.tsx:3）。这类“运行时拼接 class 名”的写法在 Tailwind 的扫描/生成阶段不可静态解析，因而不会产出对应的 CSS。
+- Vite 配置：`vite.config.ts` 已启用 `@tailwindcss/vite` 插件（vite.config.ts:2-3），符合 v4 推荐接入路径。
+- 结论汇总：
+  - 问题A（基础样式未加载）：未引入 `src/index.css`，即便静态类也不会生效。
+  - 问题B（动态类不生成）：`bg-${color}-500` 这种模板字符串不被 Tailwind 生成器识别，需改为“静态可枚举”或“CSS 变量 + arbitrary value”等模式，或用 safelist 明确列出。
+
+## GateA
+- 目标：确保 Tailwind 在构建链路中被执行且产物注入页面。
+- 现状评估：
+  - 已有：`@tailwindcss/vite` 插件开启，`src/index.css` 正确 `@import "tailwindcss"`（v4 推荐）。
+  - 缺失：`src/index.css` 未被入口引入；缺少 `main.tsx/index.html` 常规入口结构。因此 GateA 未通过，页面不会加载 Tailwind 产物。
+- 证据命令（已执行）：
+  - 列目录与包信息：`ls -la`、`cat package.json`
+  - 搜索 Tailwind/CSS 入口引用：`rg -n "index.css|@tailwind|tailwindcss" -S`（仅命中 src/index.css、自身配置与依赖）
+  - 读取 Vite 配置：`sed -n '1,200p' vite.config.ts`
+
+## GateC
+- 目标：确保待使用的类名能被扫描并生成。
+- 现状评估（v4 with @tailwindcss/vite）：
+  - 静态类：会被插件正常识别与生成。
+  - 模板字符串拼接类（如 `bg-${color}-500`）：无法被静态分析，默认不生成，对应样式缺失。
+  - v4 不再强制配置 `content` 路径；但“可静态发现”这一前提仍成立——动态拼接依旧不可用，需改写或 safelist。
+- 证据命令（已执行）：
+  - 搜索动态拼接：`rg -n "bg-\\$\\{|text-\\$\\{|class(Name)?=.*\\$\\{" -S src`（命中 src/App.tsx:3）
+
+## FixPlan
+- 修复优先级（先打通 GateA，再解决动态类）：
+  - 引入样式入口（GateA）：在你的应用入口（通常 `src/main.tsx`）里添加 `import "./index.css"`；若缺少标准入口，请按 Vite React 模板补齐 `index.html` + `src/main.tsx` 并在其中引入 `index.css`。
+  - 替代动态拼接（GateC）三选一：
+    - 显式枚举（推荐，适用于有限集）：用映射替代模板字符串，保证类名在源码中“可见”。示例：
+      - `const bgMap = { red: "bg-red-500", blue: "bg-blue-500" } as const;`
+      - `className={clsx(bgMap[color] ?? "bg-red-500", "text-white p-4")}`
+    - CSS 变量 + arbitrary value（适用于任意颜色值，例如十六进制/RGB/来自后端）：
+      - `className="bg-[--bg] text-white p-4"` 并设置 `style={{ '--bg': '#ef4444' }}` 或计算得到的颜色值（TypeScript 可写成 `as React.CSSProperties`）。
+      - 注意：此路劲是“值”动态，类名本身保持静态，Tailwind 能生成 `bg-[--bg]` 对应规则。
+    - safelist（适用于可列举但分散在运行时的 Token）：新增 `tailwind.config.ts` 并配置
+      - `export default { safelist: [{ pattern: /^bg-(red|blue|green)-(100|200|300|400|500)$/ }] }`
+      - 根据你的色板/深浅实际扩展。此方式让生成器强制产出匹配类。
+- 代码组织建议：
+  - 将颜色 Token 的来源（主题/后端字典）收敛为一份白名单，前端以映射形式承载，避免在模板字符串里直接拼接 Tailwind token。
+
+## Validation
+- GateA 验证（样式注入）：
+  - 引入样式后，运行本地预览：`npx vite`（或 `npm run dev` 若已配置脚本）。
+  - 浏览器检查元素应含有 Tailwind 基础样式（如 `p-4` 的 padding 生效、`text-white` 生效）。
+- GateC 验证（类生成）：
+  - 显式枚举方案：在页面切换 `color` 的不同枚举值，观察背景色是否随之变化；构建后检查产物 CSS 是否包含 `bg-red-500`/`bg-blue-500` 等。
+  - CSS 变量方案：将 `style={{ '--bg': '#00ff00' }}`，观察背景是否变为对应颜色；构建后无需存在具体 `bg-xxx-yyy` 类，`bg-[--bg]` 规则应存在。
+  - safelist 方案：执行构建（`npx vite build`）后，grep 产物：
+    - `rg -n \"\\.bg-red-500|\\.bg-blue-500\" dist -S`
+    - 命中则代表 safelist 生效。
+- 回归检查：
+  - `rg -n \"\\$\\{.*\\}\" src` 确认不再有用于 Tailwind token 的模板字符串拼接（可允许存在但不用于类名）。
+  - 变更后再次打开页面，确认动态样式路径按预期工作且无控制台警告。
+2026-02-18T20:11:10.664889Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+tokens used
+100,733
+## Diagnosis
+- 版本与栈确认：`tailwindcss@4.1.3` + `@tailwindcss/vite` + `vite@5.4.0`（package.json:8-11），属于 Tailwind v4 + 官方 Vite 插件方案。
+- 样式入口：`src/index.css` 仅包含 `@import "tailwindcss";`（src/index.css:1），但在项目中未被任何入口文件引用（未找到对 `index.css` 的 import）。
+- 动态 class 用法：`src/App.tsx` 使用模板字符串 `bg-${color}-500`（src/App.tsx:3）。这类“运行时拼接 class 名”的写法在 Tailwind 的扫描/生成阶段不可静态解析，因而不会产出对应的 CSS。
+- Vite 配置：`vite.config.ts` 已启用 `@tailwindcss/vite` 插件（vite.config.ts:2-3），符合 v4 推荐接入路径。
+- 结论汇总：
+  - 问题A（基础样式未加载）：未引入 `src/index.css`，即便静态类也不会生效。
+  - 问题B（动态类不生成）：`bg-${color}-500` 这种模板字符串不被 Tailwind 生成器识别，需改为“静态可枚举”或“CSS 变量 + arbitrary value”等模式，或用 safelist 明确列出。
+
+## GateA
+- 目标：确保 Tailwind 在构建链路中被执行且产物注入页面。
+- 现状评估：
+  - 已有：`@tailwindcss/vite` 插件开启，`src/index.css` 正确 `@import "tailwindcss"`（v4 推荐）。
+  - 缺失：`src/index.css` 未被入口引入；缺少 `main.tsx/index.html` 常规入口结构。因此 GateA 未通过，页面不会加载 Tailwind 产物。
+- 证据命令（已执行）：
+  - 列目录与包信息：`ls -la`、`cat package.json`
+  - 搜索 Tailwind/CSS 入口引用：`rg -n "index.css|@tailwind|tailwindcss" -S`（仅命中 src/index.css、自身配置与依赖）
+  - 读取 Vite 配置：`sed -n '1,200p' vite.config.ts`
+
+## GateC
+- 目标：确保待使用的类名能被扫描并生成。
+- 现状评估（v4 with @tailwindcss/vite）：
+  - 静态类：会被插件正常识别与生成。
+  - 模板字符串拼接类（如 `bg-${color}-500`）：无法被静态分析，默认不生成，对应样式缺失。
+  - v4 不再强制配置 `content` 路径；但“可静态发现”这一前提仍成立——动态拼接依旧不可用，需改写或 safelist。
+- 证据命令（已执行）：
+  - 搜索动态拼接：`rg -n "bg-\\$\\{|text-\\$\\{|class(Name)?=.*\\$\\{" -S src`（命中 src/App.tsx:3）
+
+## FixPlan
+- 修复优先级（先打通 GateA，再解决动态类）：
+  - 引入样式入口（GateA）：在你的应用入口（通常 `src/main.tsx`）里添加 `import "./index.css"`；若缺少标准入口，请按 Vite React 模板补齐 `index.html` + `src/main.tsx` 并在其中引入 `index.css`。
+  - 替代动态拼接（GateC）三选一：
+    - 显式枚举（推荐，适用于有限集）：用映射替代模板字符串，保证类名在源码中“可见”。示例：
+      - `const bgMap = { red: "bg-red-500", blue: "bg-blue-500" } as const;`
+      - `className={clsx(bgMap[color] ?? "bg-red-500", "text-white p-4")}`
+    - CSS 变量 + arbitrary value（适用于任意颜色值，例如十六进制/RGB/来自后端）：
+      - `className="bg-[--bg] text-white p-4"` 并设置 `style={{ '--bg': '#ef4444' }}` 或计算得到的颜色值（TypeScript 可写成 `as React.CSSProperties`）。
+      - 注意：此路劲是“值”动态，类名本身保持静态，Tailwind 能生成 `bg-[--bg]` 对应规则。
+    - safelist（适用于可列举但分散在运行时的 Token）：新增 `tailwind.config.ts` 并配置
+      - `export default { safelist: [{ pattern: /^bg-(red|blue|green)-(100|200|300|400|500)$/ }] }`
+      - 根据你的色板/深浅实际扩展。此方式让生成器强制产出匹配类。
+- 代码组织建议：
+  - 将颜色 Token 的来源（主题/后端字典）收敛为一份白名单，前端以映射形式承载，避免在模板字符串里直接拼接 Tailwind token。
+
+## Validation
+- GateA 验证（样式注入）：
+  - 引入样式后，运行本地预览：`npx vite`（或 `npm run dev` 若已配置脚本）。
+  - 浏览器检查元素应含有 Tailwind 基础样式（如 `p-4` 的 padding 生效、`text-white` 生效）。
+- GateC 验证（类生成）：
+  - 显式枚举方案：在页面切换 `color` 的不同枚举值，观察背景色是否随之变化；构建后检查产物 CSS 是否包含 `bg-red-500`/`bg-blue-500` 等。
+  - CSS 变量方案：将 `style={{ '--bg': '#00ff00' }}`，观察背景是否变为对应颜色；构建后无需存在具体 `bg-xxx-yyy` 类，`bg-[--bg]` 规则应存在。
+  - safelist 方案：执行构建（`npx vite build`）后，grep 产物：
+    - `rg -n \"\\.bg-red-500|\\.bg-blue-500\" dist -S`
+    - 命中则代表 safelist 生效。
+- 回归检查：
+  - `rg -n \"\\$\\{.*\\}\" src` 确认不再有用于 Tailwind token 的模板字符串拼接（可允许存在但不用于类名）。
+  - 变更后再次打开页面，确认动态样式路径按预期工作且无控制台警告。

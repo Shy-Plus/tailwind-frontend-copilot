@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-500: #0a7ea4;
+  --font-display: "Avenir Next", "PingFang SC", sans-serif;
+}

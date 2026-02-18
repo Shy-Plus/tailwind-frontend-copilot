@@ -1,0 +1,12 @@
+{
+  "repo_path": "/Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/migration-v3",
+  "stack": "react",
+  "builder": "unknown",
+  "package_manager": "unknown",
+  "tailwind_version": "^3.4.13",
+  "postcss_mode": "tailwindcss",
+  "tailwind_config_files": ["tailwind.config.js"],
+  "css_entries": ["src/index.css"],
+  "has_tailwind_import": false,
+  "evidence": ["react"]
+}

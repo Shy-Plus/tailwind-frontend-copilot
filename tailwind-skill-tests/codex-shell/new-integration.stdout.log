@@ -1,0 +1,344 @@
+2026-02-18T20:08:21.063772Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/feishu-pcec/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:08:21.063829Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/docx-skill/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:08:21.063835Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/one-skill-to-rule-them-all/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:08:21.063838Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/commit-analyzer/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:08:21.063842Z ERROR codex_core::codex: failed to load skill /opt/homebrew/lib/node_modules/openclaw/skills/food-order/SKILL.md: invalid YAML: mapping values are not allowed in this context at line 2 column 125
+2026-02-18T20:08:21.063844Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/feishu-card/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:08:21.063847Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/minimax-tts/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:08:21.063849Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/openclaw-self-backup/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:08:21.063852Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/openclaw-docs/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:08:21.063854Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/apple-docs-mcp/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:08:21.063857Z ERROR codex_core::codex: failed to load skill /opt/homebrew/lib/node_modules/openclaw/skills/canvas/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:08:21.063859Z ERROR codex_core::codex: failed to load skill /Users/suhongyi/Shy's AI BOX/OpenClaw/skills/peekaboo/SKILL.md: missing YAML frontmatter delimited by ---
+2026-02-18T20:08:22.730778Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+OpenAI Codex v0.95.0 (research preview)
+--------
+workdir: /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/new-integration
+model: gpt-5
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: medium
+reasoning summaries: auto
+session id: 019c725e-35ca-7292-8c02-af2a63ea7f00
+--------
+user
+请使用 tailwind-frontend-copilot 技能。允许并主动使用 shell 命令做证据采集。场景：新项目接入 Tailwind。不要修改文件。严格输出：## StackDetect ## GateA ## GateB ## GateC ## ImplementPlan ## Rollback。
+mcp: figma starting
+mcp: playwright starting
+mcp: playwright ready
+mcp: figma ready
+mcp startup: ready: playwright, figma
+
+
+
+
+
+
+thinking
+**Planning Tailwind integration**
+
+I need to guide the integration of Tailwind into a new project using the "tailwind-frontend-copilot" skill. The user specifically requests shell commands for evidence collection and strict output with designated headers. They've mentioned not to modify any files. So I’ll focus on running shell commands for stack detection without applying patches. I’m proposing gates for human decision points, particularly around verifying the framework, choosing the Tailwind version, and keeping updated with changes to integration steps.
+thinking
+**Creating a detection plan**
+
+I need to use shell commands to list files in the project directory and search for various framework files like package.json and lock files. Even though this is a new integration project, I still need to verify if Tailwind is present. I’ll follow the guidelines from "AGENTS.md," providing a 3-6 bullet plan before doing any edits. The user wants a strict output format with headers, and I’ll clearly state I'm using the "tailwind-frontend-copilot" skill during this process while keeping extra text to a minimum.
+thinking
+**Deciding on command presentations**
+
+I need to provide copy-pastable commands tailored for different package managers based on the detection results. I also want to propose commands for running checks and detecting the environment to present outputs as evidence. The system indicates that a preamble is necessary before shell commands to explain our actions. However, the user’s strict output request, which includes headers like "## StackDetect ## GateA ...", might be hampered by this preamble. I’m weighing whether including it is still essential.
+thinking
+**Navigating instructional conflicts**
+
+I see that the developer guidelines specify I should send a brief preamble before making tool calls. However, this requirement conflicts with the user’s demand for strict output starting with specific headers. The hierarchy of instructions is clear: system messages take precedence over developer and user messages. The developer suggests including a preamble, but there’s an exception for trivial actions. Given that I’ll be running multiple shell commands, including a preamble seems recommended, yet I need to stay aligned with the user's strict output expectations.
+thinking
+**Deciding on preamble and command structure**
+
+I’m considering how to incorporate a preamble for my shell commands without conflicting with the user’s strict output requirements. The developer recommends a brief preamble before tool calls, but the user wants headers starting with "## StackDetect." I think embedding the preamble within the "StackDetect" section would work, allowing me to explain what I'm doing while following guidelines. I'll run necessary shell commands for detection and integrate the required outputs in a structured way that satisfies both sets of instructions.
+thinking
+**Structuring implementation tracks**
+
+To avoid potentially incorrect commands for Tailwind v4, I’ll propose two implementation tracks: one for the stable v3.4.x LTS with PostCSS autoprefixer and another optional track for v4 with a CSS-first import. I need to state, "If you choose v4, follow the official quickstart doc," while providing clear copy-pastable commands. For compatibility, I'll recommend v3 LTS as the default. I'll also develop an "ImplementPlan" with step-by-step commands based on detected stacks using shell commands for detection.
+codex
+我将先扫描当前目录以识别包管理器与前端框架，并验证是否已有 Tailwind/PostCSS 痕迹，然后给出决策闸门与实施计划。
+exec
+bash -lc "set -euo pipefail
+pwd
+printf \"\\n# Tree (top-level)\\n\"; ls -la
+
+printf \"\\n# Look for package manifests\\n\"; rg --files -g package.json -S || true
+
+printf \"\\n# Lockfiles\\n\"; ls -1 | rg -N \""'^(pnpm-lock.yaml|yarn.lock|package-lock.json|bun.lockb)$" || true
+
+printf "'"\\n# Detect framework config files\\n\"; ls -1 | rg -N \""'^(next'"\\.config\\..*|vite\\.config\\..*|nuxt\\.config\\..*|svelte\\.config\\..*|astro\\.config\\..*|remix\\.config\\..*|angular\\.json)"'$" || true
+
+printf "'"\\n# Tailwind/PostCSS markers\\n\"; ls -1 | rg -N \""'^(tailwind'"\\.config\\..*|postcss\\.config\\..*)"'$" || true
+
+printf "'"\\n# Node & PM versions\\n\"; { node -v || echo \"node: not found\"; } 2>/dev/null; { npm -v || echo \"npm: not found\"; } 2>/dev/null; { pnpm -v || echo \"pnpm: not found\"; } 2>/dev/null; { yarn -v || echo \"yarn: not found\"; } 2>/dev/null; { bun -v || echo \"bun: not found\"; } 2>/dev/null
+
+if [ -f package.json ]; then
+  printf \"\\n# package.json summary (name, scripts keys, deps keys)\\n\"
+  if command -v jq >/dev/null 2>&1; then
+    jq '{name, scripts, dependencies, devDependencies}' package.json || true
+  else
+    cat package.json | sed -n '1,120p'
+  fi
+fi
+" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/new-integration succeeded in 417ms:
+/Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/new-integration
+
+# Tree (top-level)
+total 8
+drwxr-xr-x@ 4 suhongyi  staff  128 Feb 19 03:34 .
+drwxr-xr-x@ 6 suhongyi  staff  192 Feb 19 03:34 ..
+-rw-r--r--@ 1 suhongyi  staff  141 Feb 19 03:34 package.json
+drwxr-xr-x@ 3 suhongyi  staff   96 Feb 19 03:34 src
+
+# Look for package manifests
+package.json
+
+# Lockfiles
+
+# Detect framework config files
+
+# Tailwind/PostCSS markers
+
+# Node & PM versions
+v25.2.1
+2026-02-18T20:08:51.393407Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+
+thinking
+**Investigating project structure**
+
+I’ve detected that I’m working in a directory with a package.json file listing dependencies like React 18.3.1 and Vite 5.4.0, which is promising. Node.js is v25.2.1, npm is 11.8.0, and bun is 1.3.8, indicating some options for package management. There’s no lockfile, and Yarn/pnpm is absent. Vite might need configuration, but it can also run with zero-config defaults. I’ll check the `src` directory for key files like `index.html` and `main.jsx/tsx`. Let’s run some commands to inspect!
+exec
+bash -lc "printf \"# List src\\n\"; ls -la src || true
+printf \"\\n# Find entry files\\n\"; rg -n --hidden -S -g '"'!node_modules'"' -e 'index\\.html|main\\.(tsx?|jsx?)|App\\.(tsx?|jsx?)|root\\.tsx' || true
+" in /Users/suhongyi/Shy's AI BOX/Shy-Dev/Tools/tailwind-skill-testbeds/new-integration succeeded in 36ms:
+# List src
+total 8
+drwxr-xr-x@ 3 suhongyi  staff   96 Feb 19 03:34 .
+drwxr-xr-x@ 4 suhongyi  staff  128 Feb 19 03:34 ..
+-rw-r--r--@ 1 suhongyi  staff   61 Feb 19 03:34 App.jsx
+
+# Find entry files
+2026-02-18T20:09:00.416492Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+
+
+
+
+
+thinking
+**Considering Tailwind integration**
+
+It looks like I've only got src/App.jsx, and I don’t have index.html or main.jsx, which might mean things are incomplete. The user wants to avoid modifying files, so I need to come up with a plan that doesn’t involve actual changes. I can suggest commands to install packages, set up config files, and add CSS for Tailwind while keeping the user's instructions in mind.
+
+I'll present options for choosing between Tailwind v3.4 or v4, weighing their pros and cons.
+thinking
+**Planning Tailwind build configuration**
+
+I'm considering the build path for Vite + React, which involves defining CSS file locations and content globs. For Vite, I propose using content globs like src/**/*.{js,ts,jsx,tsx,html}. If we go with the v3 path, I’ll suggest adding both a tailwind.config.js and postcss.config.js file. For the v4 path, we can create a minimal configuration by including a tailwind.config.js and just installing Tailwind. It's important to ensure the PostCSS plugin functions correctly, so I think I should create postcss.config.js for safety.
+thinking
+**Crafting installation commands**
+
+Since the user requested not to modify any files, I’ll focus on proposing commands without running any changes. For the "ImplementPlan," I can provide copy-paste commands for installing Tailwind and creating necessary files. My suggestions would be:
+
+- Install dependencies with `npm i -D tailwindcss@3.4.14 postcss autoprefixer`.
+- Initialize Tailwind with `npx tailwindcss init -p`.
+- Create the CSS file in src/styles with appropriate commands.
+
+I also need to handle the Vite entry correctly, checking whether to import in `main.jsx` or `App.jsx` as needed. I’ll include a "Rollback" section for undoing changes and "GateB" to ensure prerequisites are met, which means showing any missing components too.
+thinking
+**Structuring the setup**
+
+I’m outlining the structure for my setup plan called "StackDetect." First, I'll summarize the gathered evidence, which highlights the framework as Vite + React, with npm being the package manager since there's no lockfile. Node version is v25.2.1, and there are no Tailwind/PostCSS configs yet. The only file present is src/App.jsx, and I'll note that typical Vite entries like index.html and src/main.jsx are missing, which we should address in the plan.
+
+Next, for "GateA," I’ll provide options for Tailwind version and approach. I’ll recommend using Tailwind v3 LTS for better integration reliability while also offering v4 as an optional modern choice due to potential ease of configuration. Ultimately, I think defaulting to v3 is safest for guaranteed steps, but I’ll include a note for users who choose v4 with a command set.
+thinking
+**Deciding on Tailwind version**
+
+I’m making a decision for GateA to use Tailwind v3.4 LTS now, with an optional path to switch to v4 later if needed. This way, we can avoid introducing extra unknowns since there are missing typical entry files.
+
+For GateB , I’ll focus on integrating Vite + React. I’ll set a suggestion to import the CSS directly into App.jsx, or alternatively into main.jsx if it exists. 
+
+Then, I’ll recommend creating a tailwind.css file in the src/styles directory to keep the project organized, along with a postcss.config.js for plugin management. 
+
+Moving to GateC, we’ll create a tailwind.config.js that includes content globs and a standard theme extension. I’ll remind about the potential impact of UI libraries on the preflight styles.
+
+In the ImplementPlan, I’ll provide clear and concise commands for installing dependencies, initializing Tailwind, and setting up relevant files. I’ll include a proposal for establishing npm scripts but will keep in mind the user’s request to avoid modifying files directly, offering commands to run instead. Lastly, I’ll add some sanity check commands to verify everything is working, ensuring to format everything clearly and noting any updates to documentation needed without making changes.
+codex
+## StackDetect
+- 使用技能: tailwind-frontend-copilot（识别当前前端栈与集成切入点）
+- 证据采集要点
+  - Node/PM: node v25.2.1, npm 11.8.0, bun 1.3.8（未检测到 yarn/pnpm 锁文件）
+  - 框架/构建: package.json 依赖含 `vite@5.4.0` 与 `react@18.3.1`，推断为 Vite + React 项目（零配置形态）
+  - Tailwind 状态: 未发现 `tailwind.config.*` 或 `postcss.config.*`
+  - 工程结构: 顶层存在 `src/App.jsx`，未检测到典型入口 `index.html` 或 `src/main.jsx`（Vite 可零配置运行，但后续需要放置全局样式引入点）
+- 采集命令与关键输出（摘要）
+  - `ls -la` → 有 `package.json`, `src/`
+  - `node -v && npm -v && bun -v` → 分别为 v25.2.1 / 11.8.0 / 1.3.8
+  - `cat package.json`（摘要）→ deps: react 18.3.1, vite 5.4.0；无 scripts、无 devDependencies
+  - 结论: 目标栈为「Vite + React」，当前尚未接入 Tailwind/PostCSS，包管理器以 npm 为主（亦可切 bun）
+
+## GateA
+- 决策主题: 选择 Tailwind 版本与接入路径
+- 选项
+  - A1（推荐，稳健/LTS轨）: Tailwind CSS v3.4.x + PostCSS + Autoprefixer
+    - 优点: 文档与社区范式成熟，Vite/React 兼容性好，所有脚手架流程稳定
+    - 风险: 相比 v4 配置稍多（需要 postcss.config）
+  - A2（前沿/更简）: Tailwind CSS v4
+    - 优点: 更少配置，CSS-first 心智，构建链更轻
+    - 风险: 与部分插件/工具链的兼容性需要逐项确认；迁移指南需严格对齐官方文档
+- 本次建议: 采用 A1（v3.4 LTS）作为默认路径；A2 提供备选命令，按需切换
+
+## GateB
+- 决策主题: 构建工具与注入点
+- 结论（基于证据）:
+  - 构建工具: Vite 5（零配置）
+  - 注入点策略: 在全局入口引入 `tailwind.css`
+    - 若存在 `src/main.jsx` → 在 main.jsx 顶部 `import './styles/tailwind.css'`
+    - 如暂仅有 `src/App.jsx` → 临时在 App.jsx 顶部引入，后续补齐 main.jsx 再迁移
+- 包管理器策略:
+  - 首选 npm（已就绪）；如需更快安装且可接受差异，可选择 bun 等价命令
+
+## GateC
+- 决策主题: 内容扫描范围、样式来源与主题扩展
+- Content globs（Vite + React 常规）:
+  - `content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}']`
+- 样式组织:
+  - 创建 `src/styles/tailwind.css`，仅含三行指令（base/components/utilities）
+  - 与 UI 库并用时，保留 `preflight`，若与 Reset/Normalize 冲突再按需关闭
+- 主题扩展:
+  - 在 `tailwind.config.js` 的 `theme.extend` 统一放置色板、间距、字体
+  - 预留 `plugins: []`，后续引入 forms/typography/aspect-ratio 等插件
+
+## ImplementPlan
+- 安装（A1: v3.4 LTS，npm）
+  - `npm i -D tailwindcss@3 postcss autoprefixer`
+  - `npx tailwindcss init -p`  # 生成 `tailwind.config.js` 与 `postcss.config.js`
+- 配置（A1）
+  - 编辑 `tailwind.config.js` → 设置:
+    - `content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}']`
+    - `theme: { extend: {} }`, `plugins: []`
+  - 新建 `src/styles/tailwind.css`，写入:
+    - `@tailwind base;`
+    - `@tailwind components;`
+    - `@tailwind utilities;`
+  - 在入口处引入（择一）:
+    - 如有 `src/main.jsx`: `import './styles/tailwind.css'`
+    - 当前仅 `src/App.jsx`: 暂时在 `src/App.jsx` 顶部引入，后续再迁移到 main.jsx
+- 脚本（便于启动/构建）
+  - `npm pkg set scripts.dev=\"vite\"`
+  - `npm pkg set scripts.build=\"vite build\"`
+  - `npm pkg set scripts.preview=\"vite preview --port 4173\"`
+- 运行与自验
+  - `npm run dev` → 访问本地端口，创建任意元素并添加 `className=\"text-3xl font-bold underline\"` 验证
+  - 如输出类名未生效，检查：入口是否引入 `tailwind.css`；content globs 是否覆盖到文件
+- 备选（A2: v4，npm）—如按官方简化路径接入
+  - `npm i -D tailwindcss@latest`
+  - 新建 `src/styles/tailwind.css`，写入（v4 推荐语法同样保留三指令或使用 `@import "tailwindcss";` 的简单入口）
+  - 新建/编辑 `tailwind.config.js`（如需自定义主题）并设置 `content` globs
+  - 在入口引入 `import './styles/tailwind.css'`
+  - 备注: v4 的 PostCSS 需求与插件形态不同于 v3；如项目已有 PostCSS 流程，优先对齐官方迁移文档再启用插件
+- 文档更新（不改动文件，仅提供动作清单）
+  - 在项目运维文档加入：依赖版本、接入步骤、scripts、常见问题（如 preflight/第三方组件库冲突处理）
+
+## Rollback
+- 卸载依赖（按所选版本回滚）
+  - A1 回滚: `npm rm tailwindcss postcss autoprefixer`；删除 `tailwind.config.js`、`postcss.config.js`、`src/styles/tailwind.css` 的新增文件
+  - A2 回滚: `npm rm tailwindcss`；删除 `tailwind.config.js`（如创建）与 `src/styles/tailwind.css`
+- 入口还原
+  - 去除入口文件中的 `import './styles/tailwind.css'`
+- 脚本还原
+  - 如不再使用 Vite 脚本: `npm pkg delete scripts.dev scripts.build scripts.preview`
+- 验证回滚
+  - 清理缓存与锁文件（如产生）并重新安装依赖：`rm -f package-lock.json && rm -rf node_modules && npm i`，确认页面无 Tailwind 样式生效
+2026-02-18T20:09:29.642972Z  WARN codex_protocol::openai_models: Model personality requested but model_messages is missing, falling back to base instructions. model=gpt-5 personality=pragmatic
+tokens used
+54,915
+## StackDetect
+- 使用技能: tailwind-frontend-copilot（识别当前前端栈与集成切入点）
+- 证据采集要点
+  - Node/PM: node v25.2.1, npm 11.8.0, bun 1.3.8（未检测到 yarn/pnpm 锁文件）
+  - 框架/构建: package.json 依赖含 `vite@5.4.0` 与 `react@18.3.1`，推断为 Vite + React 项目（零配置形态）
+  - Tailwind 状态: 未发现 `tailwind.config.*` 或 `postcss.config.*`
+  - 工程结构: 顶层存在 `src/App.jsx`，未检测到典型入口 `index.html` 或 `src/main.jsx`（Vite 可零配置运行，但后续需要放置全局样式引入点）
+- 采集命令与关键输出（摘要）
+  - `ls -la` → 有 `package.json`, `src/`
+  - `node -v && npm -v && bun -v` → 分别为 v25.2.1 / 11.8.0 / 1.3.8
+  - `cat package.json`（摘要）→ deps: react 18.3.1, vite 5.4.0；无 scripts、无 devDependencies
+  - 结论: 目标栈为「Vite + React」，当前尚未接入 Tailwind/PostCSS，包管理器以 npm 为主（亦可切 bun）
+
+## GateA
+- 决策主题: 选择 Tailwind 版本与接入路径
+- 选项
+  - A1（推荐，稳健/LTS轨）: Tailwind CSS v3.4.x + PostCSS + Autoprefixer
+    - 优点: 文档与社区范式成熟，Vite/React 兼容性好，所有脚手架流程稳定
+    - 风险: 相比 v4 配置稍多（需要 postcss.config）
+  - A2（前沿/更简）: Tailwind CSS v4
+    - 优点: 更少配置，CSS-first 心智，构建链更轻
+    - 风险: 与部分插件/工具链的兼容性需要逐项确认；迁移指南需严格对齐官方文档
+- 本次建议: 采用 A1（v3.4 LTS）作为默认路径；A2 提供备选命令，按需切换
+
+## GateB
+- 决策主题: 构建工具与注入点
+- 结论（基于证据）:
+  - 构建工具: Vite 5（零配置）
+  - 注入点策略: 在全局入口引入 `tailwind.css`
+    - 若存在 `src/main.jsx` → 在 main.jsx 顶部 `import './styles/tailwind.css'`
+    - 如暂仅有 `src/App.jsx` → 临时在 App.jsx 顶部引入，后续补齐 main.jsx 再迁移
+- 包管理器策略:
+  - 首选 npm（已就绪）；如需更快安装且可接受差异，可选择 bun 等价命令
+
+## GateC
+- 决策主题: 内容扫描范围、样式来源与主题扩展
+- Content globs（Vite + React 常规）:
+  - `content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}']`
+- 样式组织:
+  - 创建 `src/styles/tailwind.css`，仅含三行指令（base/components/utilities）
+  - 与 UI 库并用时，保留 `preflight`，若与 Reset/Normalize 冲突再按需关闭
+- 主题扩展:
+  - 在 `tailwind.config.js` 的 `theme.extend` 统一放置色板、间距、字体
+  - 预留 `plugins: []`，后续引入 forms/typography/aspect-ratio 等插件
+
+## ImplementPlan
+- 安装（A1: v3.4 LTS，npm）
+  - `npm i -D tailwindcss@3 postcss autoprefixer`
+  - `npx tailwindcss init -p`  # 生成 `tailwind.config.js` 与 `postcss.config.js`
+- 配置（A1）
+  - 编辑 `tailwind.config.js` → 设置:
+    - `content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}']`
+    - `theme: { extend: {} }`, `plugins: []`
+  - 新建 `src/styles/tailwind.css`，写入:
+    - `@tailwind base;`
+    - `@tailwind components;`
+    - `@tailwind utilities;`
+  - 在入口处引入（择一）:
+    - 如有 `src/main.jsx`: `import './styles/tailwind.css'`
+    - 当前仅 `src/App.jsx`: 暂时在 `src/App.jsx` 顶部引入，后续再迁移到 main.jsx
+- 脚本（便于启动/构建）
+  - `npm pkg set scripts.dev=\"vite\"`
+  - `npm pkg set scripts.build=\"vite build\"`
+  - `npm pkg set scripts.preview=\"vite preview --port 4173\"`
+- 运行与自验
+  - `npm run dev` → 访问本地端口，创建任意元素并添加 `className=\"text-3xl font-bold underline\"` 验证
+  - 如输出类名未生效，检查：入口是否引入 `tailwind.css`；content globs 是否覆盖到文件
+- 备选（A2: v4，npm）—如按官方简化路径接入
+  - `npm i -D tailwindcss@latest`
+  - 新建 `src/styles/tailwind.css`，写入（v4 推荐语法同样保留三指令或使用 `@import "tailwindcss";` 的简单入口）
+  - 新建/编辑 `tailwind.config.js`（如需自定义主题）并设置 `content` globs
+  - 在入口引入 `import './styles/tailwind.css'`
+  - 备注: v4 的 PostCSS 需求与插件形态不同于 v3；如项目已有 PostCSS 流程，优先对齐官方迁移文档再启用插件
+- 文档更新（不改动文件，仅提供动作清单）
+  - 在项目运维文档加入：依赖版本、接入步骤、scripts、常见问题（如 preflight/第三方组件库冲突处理）
+
+## Rollback
+- 卸载依赖（按所选版本回滚）
+  - A1 回滚: `npm rm tailwindcss postcss autoprefixer`；删除 `tailwind.config.js`、`postcss.config.js`、`src/styles/tailwind.css` 的新增文件
+  - A2 回滚: `npm rm tailwindcss`；删除 `tailwind.config.js`（如创建）与 `src/styles/tailwind.css`
+- 入口还原
+  - 去除入口文件中的 `import './styles/tailwind.css'`
+- 脚本还原
+  - 如不再使用 Vite 脚本: `npm pkg delete scripts.dev scripts.build scripts.preview`
+- 验证回滚
+  - 清理缓存与锁文件（如产生）并重新安装依赖：`rm -f package-lock.json && rm -rf node_modules && npm i`，确认页面无 Tailwind 样式生效
